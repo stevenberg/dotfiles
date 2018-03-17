@@ -1,0 +1,44 @@
+---
+AllCops:
+  TargetRubyVersion: 2.5
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    association:
+      - belongs_to
+      - has_many
+      - has_one
+      - has_and_belongs_to_many
+    validation:
+      - validates
+    attribute:
+      - attr_accessor
+      - attr_reader
+      - attr_writer
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - association
+    - validation
+    - attribute
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
