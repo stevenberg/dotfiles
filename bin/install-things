@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "yaml"
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+config = YAML.load_file(ARGV.first)
+command_prefix = config["command"]
+things = config["things"]
+after_commands = config["after"]
+
+things.each do |thing|
+  case thing
+  when String
+    system! "#{command_prefix} #{thing}"
+  when Hash
+    name = thing["name"]
+    version = thing["version"]
+
+    system! "#{command_prefix} #{name} -v #{version}"
+  end
+end
+
+after_commands&.each do |command|
+  system! command
+end
