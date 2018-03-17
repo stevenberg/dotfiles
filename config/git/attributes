@@ -1,0 +1,5 @@
+*.acorn binary
+*.iconsproj binary
+*.ico binary
+*.jpg diff=exif
+*.png diff=exif

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+if ARGV.size != 1
+  $stderr.puts 'usage: git bugfix FEATURE_NAME'
+  exit 1
+end
+
+system! "git feature bugfix-#{ARGV.first}"

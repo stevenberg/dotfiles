@@ -1,0 +1,66 @@
+[alias]
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+    unstage = reset -q HEAD --
+    discard = checkout --
+    uncommit = reset --mixed HEAD~
+    amend = commit --amend
+    nevermind = !git reset --hard HEAD && git clean -d -f
+    ctags = !.git/hooks/ctags
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    prune = fetch --prune
+    stash-all = stash save --include-untracked
+[color]
+    ui = true
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+[commit]
+    verbose = true
+[core]
+    trustctime = false
+    pager = diff-so-fancy | less -S
+[diff]
+    compactionHeuristic = true
+[diff "exif"]
+    textconv = exiftool
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+[gitsh]
+    noGreeting = true
+    defaultCommand = status --short --branch && :echo
+    gitCommand = hub
+[help]
+    autoCorrect = 10
+[hub]
+    protocol = https
+[include]
+    path = config.local
+[init]
+	templateDir = ~/.config/git/template
+[interactive]
+    singleKey = true
+    diffFilter = diff-highlight
+[merge]
+    conflictstyle = diff3
+    ff = only
+[push]
+    default = simple
+    followTags = true
+[rebase]
+    autosquash = true
+[stash]
+    showPatch = true
+[status]
+    showUntrackedFiles = all
+[transfer]
+    fsckobjects = true
+[user]
+    name = Steven Berg
+    email = steven@stevenberg.net
+[diff-so-fancy]
+    first-run = false

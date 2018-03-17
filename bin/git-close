@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+branch = `git branch`.split("\n").find { |l| l =~ /\*/ }.split(" ")[1]
+
+abort "Can't close the master branch" if branch == "master"
+
+master = ARGV.empty? ? "master" : ARGV.first
+
+system! "git checkout #{master}"
+system! "git pull upstream #{master}"
+system! "git push"
+system! "git push origin :#{branch}"
+system! "git branch -d #{branch}"
