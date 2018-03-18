@@ -1,0 +1,6 @@
+---
+command: pip install
+things:
+  - gitlint
+  - vim-vint
+  - yamllint
