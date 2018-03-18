@@ -1,0 +1,7 @@
+---
+command: composer global require
+things:
+  - laravel/installer
+  - laravel/lumen-installer
+  - friendsofphp/php-cs-fixer
+  - psy/psysh
