@@ -36,3 +36,7 @@ for extra_path in $extra_paths
         set PATH $extra_path $PATH
     end
 end
+
+for path in $HOME/.config/fish/config.d/*.fish
+    source $path
+end
