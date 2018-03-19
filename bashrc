@@ -18,6 +18,11 @@ export LC_ALL='en_US.UTF-8'
 export LESS='-F -g -i -r -w -X -z-3'
 export VISUAL=$EDITOR
 
+BASE16_SHELL=$HOME/.config/base16-shell/
+if [ -n "$PS1" ] && [ -s "$BASE16_SHELL"/profile_helper.sh ]; then
+    eval "$("$BASE16_SHELL"/profile_helper.sh)"
+fi
+
 # shellcheck source=/dev/null
 source "$HOME/.config/iterm2/shell_integration.bash"
 source /usr/local/share/chruby/chruby.sh

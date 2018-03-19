@@ -2,6 +2,7 @@ packadd minpac
 call minpac#init()
 call minpac#add('Raimondi/delimitMate')
 call minpac#add('airblade/vim-gitgutter')
+call minpac#add('chriskempson/base16-vim', {'type': 'opt'})
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('editorconfig/editorconfig-vim')
@@ -130,7 +131,10 @@ if has('nvim')
   let g:test#strategy='neoterm'
 endif
 
-colorscheme solarized8_high
+if filereadable(expand('~/.vimrc_background'))
+  let g:base16colorbase=256
+  source ~/.vimrc_background
+endif
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()

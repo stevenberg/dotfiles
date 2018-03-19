@@ -18,6 +18,10 @@ abbr -a lr ls -R
 
 set fish_greeting
 
+if status --is-interactive
+    source $HOME/.config/base16-shell/profile_helper.fish
+end
+
 source /usr/local/share/chruby/chruby.fish
 source /usr/local/share/chruby/auto.fish
 source (direnv hook fish|psub)
