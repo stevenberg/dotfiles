@@ -18,16 +18,30 @@ abbr -a lr ls -R
 
 set fish_greeting
 
+source $HOME/.config/iterm2/shell_integration.fish
+
 if status --is-interactive
     source $HOME/.config/base16-shell/profile_helper.fish
 end
 
-source /usr/local/share/chruby/chruby.fish
-source /usr/local/share/chruby/auto.fish
-source (direnv hook fish|psub)
 source $HOME/.config/iterm2/shell_integration.fish
-thefuck --alias | source
-brew command command-not-found-init > /dev/null 2>&1; and . (brew command-not-found-init)
+
+if test -d /usr/local/share/chruby
+    source /usr/local/share/chruby/chruby.fish
+    source /usr/local/share/chruby/auto.fish
+end
+
+if type -q direnv
+    source (direnv hook fish|psub)
+end
+
+if type -q thefuck
+    thefuck --alias | source
+end
+
+if type -q brew
+    brew command command-not-found-init > /dev/null ^&1; and source (brew command-not-found-init)
+end
 
 set extra_paths \
     $HOME/bin \

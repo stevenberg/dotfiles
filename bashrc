@@ -25,12 +25,30 @@ fi
 
 # shellcheck source=/dev/null
 source "$HOME/.config/iterm2/shell_integration.bash"
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-eval "$(direnv hook bash)"
-eval "$(SHELL=bash thefuck --alias)"
-if brew command command-not-found-init >/dev/null 2>&1; then
-    eval "$(brew command-not-found-init)"
+
+if [ -d /usr/local/share/chruby ]; then
+    source /usr/local/share/chruby/chruby.sh
+    source /usr/local/share/chruby/auto.sh
+fi
+
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook bash)"
+fi
+
+if [ -x "$(command -v thefuck)" ]; then
+    eval "$(SHELL=bash thefuck --alias)"
+fi
+
+if [ -x "$(command -v brew)" ]; then
+    if brew command command-not-found-init >/dev/null 2>&1; then
+        eval "$(brew command-not-found-init)"
+    fi
+fi
+
+if [ -x "$(command -v lesspipe)" ]; then
+    eval "$(lesspipe)"
+elif [ -x "$(command -v lespipe.sh)" ]; then
+    eval "$(lesspipe.sh)"
 fi
 
 paths=("$HOME/bin" "$GOPATH/bin" "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin")
