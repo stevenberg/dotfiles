@@ -13,7 +13,6 @@ brew "git", args: [
 brew "ansible"
 brew "ansible-lint"
 brew "bash"
-brew "chruby-fish"
 brew "clang-format"
 brew "cmake"
 brew "cppcheck"

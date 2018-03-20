@@ -48,9 +48,8 @@ if [[ $- == *i* ]]; then
     fi
 fi
 
-if [ -d /usr/local/share/chruby ]; then
-    source /usr/local/share/chruby/chruby.sh
-    source /usr/local/share/chruby/auto.sh
+if [ -x "$(command -v rbenv)" ]; then
+    eval "$(rbenv init -)"
 fi
 
 if [ -x "$(command -v direnv)" ]; then

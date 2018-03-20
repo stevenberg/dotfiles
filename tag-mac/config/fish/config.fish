@@ -44,9 +44,8 @@ if status --is-interactive
     end
 end
 
-if test -d /usr/local/share/chruby
-    source /usr/local/share/chruby/chruby.fish
-    source /usr/local/share/chruby/auto.fish
+if type -q rbenv
+    source (rbenv init -|psub)
 end
 
 if type -q direnv
