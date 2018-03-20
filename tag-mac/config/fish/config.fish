@@ -18,13 +18,31 @@ abbr -a lr ls -R
 
 set fish_greeting
 
-source $HOME/.config/iterm2/shell_integration.fish
+set extra_paths \
+    $HOME/.cargo/bin \
+    $HOME/.composer/vendor/bin \
+    $GOPATH/bin \
+    $HOME/.rbenv/bin \
+    $HOME/bin
 
-if status --is-interactive
-    source $HOME/.config/base16-shell/profile_helper.fish
+for extra_path in $extra_paths
+    if test -d "$extra_path"
+        set PATH $extra_path $PATH
+    end
 end
 
-source $HOME/.config/iterm2/shell_integration.fish
+if status --is-interactive
+    source $HOME/.config/iterm2/shell_integration.fish
+    source $HOME/.config/base16-shell/profile_helper.fish
+
+    if type -q brew
+        brew command command-not-found-init > /dev/null ^&1; and source (brew command-not-found-init)
+    end
+
+    if type -q thefuck
+        thefuck --alias | source
+    end
+end
 
 if test -d /usr/local/share/chruby
     source /usr/local/share/chruby/chruby.fish
@@ -33,26 +51,6 @@ end
 
 if type -q direnv
     source (direnv hook fish|psub)
-end
-
-if type -q thefuck
-    thefuck --alias | source
-end
-
-if type -q brew
-    brew command command-not-found-init > /dev/null ^&1; and source (brew command-not-found-init)
-end
-
-set extra_paths \
-    $HOME/bin \
-    $GOPATH/bin \
-    $HOME/.composer/vendor/bin \
-    $HOME/.cargo/bin
-
-for extra_path in $extra_paths
-    if test -d "$extra_path"
-        set PATH $extra_path $PATH
-    end
 end
 
 for path in $HOME/.config/fish/config.d/*.fish
