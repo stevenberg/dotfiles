@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+begin
+  require "sysrandom/securerandom"
+rescue LoadError
+  require "securerandom"
+end
+
+SEGMENT_SIZE = 4
+
+count = (ARGV.first || "4").to_i * SEGMENT_SIZE
+
+abort "argument must be an integer greater than 0" if count <= 0
+
+characters = ["A".."Z", "a".."z", "0".."9"].flat_map(&:to_a)
+
+puts Array
+  .new(count) { characters[SecureRandom.random_number(characters.size)] }
+  .each_slice(SEGMENT_SIZE)
+  .map(&:join)
+  .join("-")
