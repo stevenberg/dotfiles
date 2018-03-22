@@ -1,2 +1,2 @@
 EXCLUDES="composer.yml gems.yml pips.yml .editorconfig Brewfile LICENSE"
-UNDOTTED="bin"
+UNDOTTED="bin scripts"
