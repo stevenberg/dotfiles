@@ -3,5 +3,6 @@ command: composer global require
 things:
   - laravel/installer
   - laravel/lumen-installer
+  - laravel-zero/installer
   - friendsofphp/php-cs-fixer
   - psy/psysh
