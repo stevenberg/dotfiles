@@ -18,6 +18,16 @@ abbr -a lr ls -R
 
 set fish_greeting
 
+set PATH \
+    /usr/local/opt/python/libexec/bin \
+    /usr/local/go/bin \
+    /usr/local/bin \
+    /usr/bin \
+    /bin \
+    /usr/local/sbin \
+    /usr/sbin \
+    /sbin
+
 set extra_paths \
     $HOME/.cargo/bin \
     $HOME/.composer/vendor/bin \
