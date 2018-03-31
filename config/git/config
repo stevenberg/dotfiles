@@ -56,7 +56,6 @@
 	templateDir = ~/.config/git/template
 [interactive]
     singleKey = true
-    diffFilter = diff-so-fancy
 [merge]
     conflictstyle = diff3
     ff = only
