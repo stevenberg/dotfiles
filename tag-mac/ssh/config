@@ -28,6 +28,12 @@ HostName 10.1.0.151
 Host excel-live4
 HostName 10.1.0.152
 
+Host excel-live5
+HostName 10.1.0.153
+
+Host excel-live6
+HostName 10.1.0.154
+
 Host excel-mysql-dev
 HostName 10.1.0.17
 
