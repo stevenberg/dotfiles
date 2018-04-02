@@ -46,6 +46,10 @@ if [[ $- == *i* ]]; then
     elif [ -x "$(command -v lespipe.sh)" ]; then
         eval "$(lesspipe.sh)"
     fi
+
+    if [ -f /usr/local/etc/profile.d/autojump.sh ]; then
+        source /usr/local/etc/profile.d/autojump.sh
+    fi
 fi
 
 if [ -x "$(command -v rbenv)" ]; then

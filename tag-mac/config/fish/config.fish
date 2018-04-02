@@ -52,6 +52,10 @@ if status --is-interactive
     if type -q thefuck
         thefuck --alias | source
     end
+
+    if test -f /usr/local/share/autojump/autojump.fish
+        source /usr/local/share/autojump/autojump.fish
+    end
 end
 
 if type -q rbenv

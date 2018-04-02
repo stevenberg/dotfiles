@@ -12,6 +12,7 @@ brew "git", args: [
 ]
 brew "ansible"
 brew "ansible-lint"
+brew "autojump"
 brew "bash"
 brew "clang-format"
 brew "cmake"
