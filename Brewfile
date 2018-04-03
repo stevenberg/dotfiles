@@ -43,7 +43,7 @@ brew "lesspipe", args: ["with-syntax-highlighting"]
 brew "libffi"
 brew "libsodium"
 brew "libyaml"
-brew "macvim"
+brew "macvim", args: ["build-from-source"]
 brew "mariadb"
 brew "memcached"
 brew "mercurial"
