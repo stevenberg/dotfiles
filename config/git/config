@@ -37,6 +37,7 @@
     pager = diff-so-fancy | less -S
 [diff]
     compactionHeuristic = true
+    colorMoved = default
 [diff "exif"]
     textconv = exiftool
 [filter "media"]
