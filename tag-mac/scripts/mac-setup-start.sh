@@ -1,7 +1,9 @@
 #!/bin/bash
 
-set -euo pipefile
+set -euo pipefail
 
+mkdir -p ~/{bin,dev,scripts,src} ~/go/{bin,pkg,src}
+chflags hidden ~/{bin,go,src}
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 cd ~/.dotfiles
 brew bundle
@@ -16,5 +18,4 @@ git clone https://github.com/rbenv/rbenv-each.git ~/.rbenv/plugins/rbenv-each
 git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
-git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 git clone https://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags

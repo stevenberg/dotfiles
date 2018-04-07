@@ -1,13 +1,12 @@
 #!/bin/bash
 
-set -euo pipefile
+set -euo pipefail
 
 GO_VERSION='1.10.1'
 RUBY_VERSION='2.5.1'
 
 base16_default-dark
 git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
-mkdir -p ~/src
 wget https://dl.google.com/go/go$GO_VERSION.darwin-amd64.tar.gz -O ~/src/go$GO_VERSION.darwin-amd64.tar.gz
 cd /usr/local
 sudo tar -xzf ~/src/go$GO_VERSION.darwin-amd64.tar.gz
