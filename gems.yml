@@ -37,6 +37,7 @@ things:
   - net-ssh
   - oga
   - parslet
+  - passenger
   - pessimize
   - pg
   - procodile
@@ -53,6 +54,7 @@ things:
   - sass-rails
   - scenic
   - selenium-webdriver
+  - sequel
   - sidekiq
   - sinatra
   - spring
