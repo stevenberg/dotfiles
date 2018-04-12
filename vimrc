@@ -102,6 +102,7 @@ let g:ale_fixers = {
 \   'json': ['prettier'],
 \   'markdown': ['prettier'],
 \   'php': ['php_cs_fixer'],
+\   'python': ['autopep8', 'isort'],
 \   'ruby': ['rubocop'],
 \   'rust': ['rustfmt'],
 \   'scss': ['stylelint', 'prettier'],

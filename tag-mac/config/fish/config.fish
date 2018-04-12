@@ -29,6 +29,7 @@ set PATH \
     /sbin
 
 set extra_paths \
+    $HOME/Library/Python/3.6/bin \
     $HOME/.cargo/bin \
     $HOME/.composer/vendor/bin \
     $GOPATH/bin \
