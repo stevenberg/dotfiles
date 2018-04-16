@@ -110,13 +110,13 @@ let g:ale_fixers = {
 \   'vue': ['prettier'],
 \}
 let g:ale_linters = {
-\   'eruby': [],
 \   'javascript': ['eslint', 'prettier'],
 \}
 let g:ale_c_clangformat_options = '-style=WebKit'
 let g:ale_sh_shfmt_options = '-i 4'
 let g:ale_fix_on_save = 1
 let g:ctrlp_user_command = "rg --files --hidden --follow -g '!.git' -g '!.keep' %s"
+let g:delimitMate_matchpairs = '(:),[:],{:}'
 let g:EasyCLipAutoFormat = 1
 let g:EasyClipUseSubstituteDefaults = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
