@@ -2,6 +2,7 @@ packadd minpac
 call minpac#init()
 call minpac#add('Raimondi/delimitMate')
 call minpac#add('airblade/vim-gitgutter')
+call minpac#add('ap/vim-css-color')
 call minpac#add('chriskempson/base16-vim', {'type': 'opt'})
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('ctrlpvim/ctrlp.vim')
