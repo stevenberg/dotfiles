@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/NumericLiterals
+
+tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/command-not-found"
 tap "homebrew/services"
@@ -43,7 +46,6 @@ brew "lesspipe", args: ["with-syntax-highlighting"]
 brew "libffi"
 brew "libsodium"
 brew "libyaml"
-brew "macvim", args: ["build-from-source"]
 brew "mariadb"
 brew "memcached"
 brew "mercurial"
@@ -82,3 +84,39 @@ brew "watch"
 brew "wget"
 brew "xsv"
 brew "yarn"
+mas "Better", id: 1121192229
+mas "ColorSnapper2", id: 969418666
+mas "Contrast", id: 1254981365
+mas "DaisyDisk", id: 411643860
+mas "Deliveries", id: 924726344
+mas "Growl", id: 467939042
+mas "iStat Mini", id: 927292435
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Reeder", id: 880001334
+mas "Slack", id: 803453959
+mas "SnapRuler", id: 477970167
+mas "Soulver", id: 413965349
+mas "Speedtest", id: 1153157709
+mas "Spillo", id: 873245660
+mas "Xcode", id: 497799835
+mas "Yoink", id: 457622435
+cask "1password"
+cask "acorn"
+cask "backblaze"
+cask "dash"
+cask "firefox"
+cask "google-chrome"
+cask "imageoptim"
+cask "iterm2"
+cask "java"
+cask "macvim"
+cask "osxfuse"
+cask "superduper"
+cask "transmit"
+cask "transmit-disk"
+cask "virtualbox"
+cask "virtualbox-extension-pack"
+
+# rubocop:enable Style/NumericLiterals
