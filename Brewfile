@@ -91,12 +91,10 @@ mas "DaisyDisk", id: 411643860
 mas "Deliveries", id: 924726344
 mas "Growl", id: 467939042
 mas "iStat Mini", id: 927292435
-mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Reeder", id: 880001334
 mas "Slack", id: 803453959
-mas "SnapRuler", id: 477970167
 mas "Soulver", id: 413965349
 mas "Speedtest", id: 1153157709
 mas "Spillo", id: 873245660
