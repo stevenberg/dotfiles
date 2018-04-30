@@ -3,6 +3,7 @@
 # rubocop:disable Style/NumericLiterals
 
 tap "caskroom/cask"
+tap "caskroom/fonts"
 tap "homebrew/bundle"
 tap "homebrew/command-not-found"
 tap "homebrew/services"
@@ -116,5 +117,12 @@ cask "transmit"
 cask "transmit-disk"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
+cask "font-inconsolata"
+cask "font-roboto"
+cask "font-roboto-condensed"
+cask "font-roboto-mono"
+cask "font-roboto-slab"
+cask "font-source-code-pro"
+cask "font-ubuntu"
 
 # rubocop:enable Style/NumericLiterals
