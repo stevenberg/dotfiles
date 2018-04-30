@@ -40,6 +40,7 @@ brew "htop", args: ["with-ncurses"]
 brew "httpie"
 brew "hub"
 brew "imagemagick"
+brew "jemalloc"
 brew "jpegoptim"
 brew "jq"
 brew "jsonlint"
