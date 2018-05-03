@@ -1,0 +1,11 @@
+---
+command: cd ~/.rbenv/plugins && git clone https://github.com/%{thing}.git
+things:
+  - rbenv/rbenv-each
+  - rbenv/rbenv-vars
+  - rbenv/ruby-build
+  - rkh/rbenv-update
+  - tpope/rbenv-ctags
+before:
+  - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  - mkdir -p ~/.rbenv/plugins

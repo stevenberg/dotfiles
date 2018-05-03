@@ -53,6 +53,7 @@ things:
   - sass
   - sass-rails
   - scenic
+  - scrypt
   - selenium-webdriver
   - sequel
   - sidekiq

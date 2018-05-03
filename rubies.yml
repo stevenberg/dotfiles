@@ -1,0 +1,7 @@
+---
+command: rbenv install %{thing}
+things:
+  - 2.4.4
+  - 2.5.1
+  - 2.6.0-preview1
+  - jruby-9.1.17.0
