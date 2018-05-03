@@ -1,5 +1,5 @@
 ---
-command: composer global require
+command: composer global require %{thing}
 things:
   - laravel/installer
   - laravel/lumen-installer

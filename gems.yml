@@ -1,5 +1,5 @@
 ---
-command: gem install
+command: gem install %{thing}
 after:
   - gem ctags
   - gem update

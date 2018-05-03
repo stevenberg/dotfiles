@@ -1,5 +1,5 @@
 ---
-command: pip install --user --upgrade
+command: pip install --user --upgrade %{thing}
 things:
   - autopep8
   - gitlint

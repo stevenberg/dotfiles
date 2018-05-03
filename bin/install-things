@@ -8,20 +8,17 @@ def system!(*args)
 end
 
 config = YAML.load_file(ARGV.first)
-command_prefix = config["command"]
+command_template = config["command"]
 things = config["things"]
+before_commands = config["before"]
 after_commands = config["after"]
 
-things.each do |thing|
-  case thing
-  when String
-    system! "#{command_prefix} #{thing}"
-  when Hash
-    name = thing["name"]
-    version = thing["version"]
+before_commands&.each do |command|
+  system! command
+end
 
-    system! "#{command_prefix} #{name} -v #{version}"
-  end
+things.each do |thing|
+  system! format(command_template, thing: thing)
 end
 
 after_commands&.each do |command|
