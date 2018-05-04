@@ -85,7 +85,7 @@ brew "watch"
 brew "wget"
 brew "xsv"
 brew "yarn", args: ["without-node"]
-mas "Better", id: 1121192229
+mas "1Blocker", id: 1107421413
 mas "ColorSnapper2", id: 969418666
 mas "Contrast", id: 1254981365
 mas "Deliveries", id: 924726344
