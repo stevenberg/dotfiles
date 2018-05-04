@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "net/https"
+require "pathname"
+require "yaml"
+
+config_path = Pathname(Dir.home).join(".config", "pushnotify", "pushover.yml")
+config = YAML.load_file(config_path)
+user = config["user"]
+token = config["token"]
+
+url = URI.parse("https://api.pushover.net/1/messages.json")
+request = Net::HTTP::Post.new(url.path)
+
+request.set_form_data(
+  user: user,
+  token: token,
+  title: ARGV.first,
+  message: ARGV.last,
+)
+
+response = Net::HTTP.new(url.host, url.port)
+response.use_ssl = true
+response.verify_mode = OpenSSL::SSL::VERIFY_PEER
+response.start { |http| http.request(request) }
