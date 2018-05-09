@@ -7,20 +7,18 @@ call minpac#add('chriskempson/base16-vim', {'type': 'opt'})
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('editorconfig/editorconfig-vim')
-call minpac#add('fatih/vim-go')
 call minpac#add('janko-m/vim-test')
+call minpac#add('jremmen/vim-ripgrep')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('kana/vim-textobj-entire')
+call minpac#add('kana/vim-textobj-lastpat')
 call minpac#add('kana/vim-textobj-user')
-call minpac#add('kassio/neoterm', {'type': 'opt'})
-call minpac#add('lifepillar/vim-solarized8', {'type': 'opt'})
 call minpac#add('mattn/emmet-vim')
 call minpac#add('nelstrom/vim-textobj-rubyblock')
-call minpac#add('noahfrederick/vim-composer')
-call minpac#add('noahfrederick/vim-laravel')
-call minpac#add('rust-lang/rust.vim')
+call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('svermeulen/vim-easyclip')
-call minpac#add('tpope/tpope-vim-abolish')
+call minpac#add('tpope/vim-abolish')
 call minpac#add('tpope/vim-bundler')
 call minpac#add('tpope/vim-capslock')
 call minpac#add('tpope/vim-characterize')
@@ -29,9 +27,7 @@ call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-dotenv')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-eunuch')
-call minpac#add('tpope/vim-flagship')
 call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-git')
 call minpac#add('tpope/vim-jdaddy')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-projectionist')
@@ -48,7 +44,6 @@ call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('w0rp/ale')
 
 set autowriteall
@@ -59,33 +54,36 @@ set colorcolumn=81
 set cursorline
 set directory=~/.cache/vim,~/,/tmp
 set expandtab
-set grepprg=rg\ --no-header\ --color\ never
+set grepformat=%f:%l:%c:%m
+set grepprg=rg\ --vimgrep\ --smart-case
 set hlsearch
+set ignorecase
 set mouse=a
 set number
 set numberwidth=4
 set relativenumber
 set secure
-set shell=$SHELL
+set shell=/usr/local/bin/bash
 set shiftwidth=4
 set showcmd
 set signcolumn=yes
+set smartcase
+set spelllang=en_us
 set splitbelow
 set splitright
 set tabstop=4
-set tags+=~/.gem/$RUBY_ENGINE/$RUBY_VERSION/gems/**/tags
-set tags+=~/.rubies/$RUBY_ENGINE-$RUBY_VERSION/**/tags
-set tags+=./.gem/$RUBY_ENGINE/$RUBY_VERSION/gems/**/tags
+set tags+=vendor/tags,~/.rubies/$RUBY_ENGINE-$RUBY_VERSION/**/tags
 set termguicolors
-set undodir=~/.cache/vim,~/,/tmp
 set undofile
 
 if has('gui')
   set guicursor+=n-v-c:blinkon0
   set guifont=SF\ Mono:h12
   set guioptions=gm
-  set columns=100
-  set lines=60
+endif
+
+if !has('nvim')
+  set undodir=~/.cache/vim,~/,/tmp
 endif
 
 if has('nvim')
@@ -119,6 +117,8 @@ let g:ale_fix_on_save = 1
 let g:ctrlp_user_command = "rg --files --hidden --follow -g '!.git' -g '!.keep' %s"
 let g:delimitMate_matchpairs = '(:),[:],{:}'
 let g:EasyCLipAutoFormat = 1
+let g:EasyClipShareYanksFile = 1
+let g:EasyClipShareYanksDirectory = '~/.cache/vim'
 let g:EasyClipUseSubstituteDefaults = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:go_fmt_autosave = 0
@@ -127,7 +127,6 @@ let g:ruby_indent_block_style = 'do'
 let g:rubycomplete_load_gemfile = 1
 let g:rubycomplete_rails = 1
 let g:rustfmt_autosave = 1
-let g:solarized_extra_hi_groups = 1
 let g:mapleader = "\<space>"
 
 if has('nvim')
@@ -139,8 +138,12 @@ if filereadable(expand('~/.vimrc_background'))
   source ~/.vimrc_background
 endif
 
+command! SearchCount :%s///gn
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 nmap 0 ^
 nmap <leader>vr :tabedit $MYVIMRC<cr>
@@ -155,8 +158,13 @@ function! NumberToggle()
   endif
 endfunction
 
+nnoremap gm m
 nnoremap <leader>n :call NumberToggle()<cr>
+nnoremap <leader>s :SearchCount<cr>
 nnoremap <leader>wtf oputs '#' * 80<c-m>puts caller<c-m>puts '#' * 80<esc>
+
+nnoremap & :&&<cr>
+xnoremap & :&&<cr>
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -174,13 +182,12 @@ endif
 
 augroup vimrc
   autocmd!
-  autocmd FocusLost * :set norelativenumber
-  autocmd FocusGained * :set relativenumber
-  autocmd InsertEnter * :set norelativenumber
-  autocmd InsertLeave * :set relativenumber
+  autocmd FocusLost,InsertEnter * :set norelativenumber
+  autocmd FocusGained,InsertLeave * :set relativenumber
   autocmd Filetype help nmap <buffer> q :q<cr>
   autocmd BufRead,BufNewFile *.es6 setfiletype javascript
   autocmd BufRead,BufNewFile Brewfile setfiletype ruby
+  autocmd BufWritePre /tmp/*,/var/folders/* setlocal noundofile
   autocmd VimResized * :wincmd =
 
   autocmd BufReadPost *
