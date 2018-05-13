@@ -16,6 +16,10 @@ function fish_prompt
         echo -n '# '
     else
         set_color normal
-        echo -n '> '
+        if test -n "$NVIM_LISTEN_ADDRESS"
+            echo -n '» '
+        else
+            echo -n '> '
+        end
     end
 end
