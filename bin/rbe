@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+L = $stdin.readlines
+L.each { |l| puts l.instance_eval(ARGV.join(" ")) }
