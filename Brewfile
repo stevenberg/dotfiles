@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/NumericLiterals
-
-tap "caskroom/cask"
-tap "caskroom/fonts"
-tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/command-not-found"
 tap "homebrew/services"
@@ -93,50 +88,3 @@ brew "watch"
 brew "wget"
 brew "xsv"
 brew "yarn", args: ["without-node"]
-mas "1Blocker", id: 1107421413
-mas "ColorSnapper2", id: 969418666
-mas "Contrast", id: 1254981365
-mas "Deliveries", id: 924726344
-mas "Growl", id: 467939042
-mas "iStat Mini", id: 927292435
-mas "Moom", id: 419330170
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Reeder", id: 880001334
-mas "Slack", id: 803453959
-mas "Soulver", id: 413965349
-mas "Speedtest", id: 1153157709
-mas "Spillo", id: 873245660
-mas "StopTheMadness", id: 1376402589
-mas "Xcode", id: 497799835
-mas "Yoink", id: 457622435
-cask "1password"
-cask "acorn"
-cask "backblaze"
-cask "daisydisk"
-cask "dash"
-cask "firefox"
-cask "google-chrome"
-cask "imageoptim"
-cask "iterm2"
-cask "java8"
-cask "macvim"
-cask "osxfuse"
-cask "radio-silence"
-cask "safari-technology-preview"
-cask "superduper"
-cask "transmit"
-cask "transmit-disk"
-cask "vagrant"
-cask "virtualbox"
-cask "virtualbox-extension-pack"
-cask "visual-studio-code"
-cask "font-inconsolata"
-cask "font-roboto"
-cask "font-roboto-condensed"
-cask "font-roboto-mono"
-cask "font-roboto-slab"
-cask "font-source-code-pro"
-cask "font-ubuntu"
-
-# rubocop:enable Style/NumericLiterals
