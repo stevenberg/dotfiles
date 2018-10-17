@@ -10,6 +10,7 @@ set -x LESS '-F -g -i -R -w -X -z-3'
 set -x LESSOPEN '|lesspipe.sh %s'
 set -x LESS_ADVANCED_PREPROCESSOR 1
 set -x VISUAL $EDITOR
+set -x RUBY_CONFIGURE_OPTS --with-jemalloc
 
 umask 022
 

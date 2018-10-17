@@ -77,7 +77,7 @@ set spelllang=en_us
 set splitbelow
 set splitright
 set tabstop=4
-set tags+=vendor/tags
+set tags+=vendor/tags,~/.rbenv/versions/**/tags
 set termguicolors
 set undofile
 

@@ -4,7 +4,9 @@ after:
   - gem ctags
   - gem update
 things:
+  - action_policy
   - addressable
+  - annotate_models
   - awesome_print
   - bcat
   - bcrypt
@@ -14,40 +16,58 @@ things:
   - bundler-stats
   - byebug
   - capybara
+  - clearance
+  - climate_control
   - cloudinary
+  - csvpack
+  - csvreader
+  - csvrecord
   - dalli
+  - delayed_job
+  - devise
   - dotenv
   - dotenv-rails
   - factory_bot
   - factory_bot_rails
   - fastri
+  - flutie
   - foreman
   - gem-browse
   - gem-ctags
   - git
+  - griddler
+  - high_voltage
   - httparty
+  - interactor
   - irbtools
   - kramdown
   - licensed
   - listen
   - methadone
+  - mini_magick
   - monban
   - monetize
   - money
   - net-ssh
+  - nokogiri
+  - oath
+  - oath-generators
   - oga
+  - optimist
   - parslet
   - passenger
   - pessimize
   - pg
   - procodile
   - puma
+  - rack-canonical-host
   - rails
   - rbnacl
   - rbnacl-libsodium
   - rcodetools
   - redis
   - reek
+  - resque
   - rspec
   - rubocop
   - sass
@@ -57,16 +77,20 @@ things:
   - selenium-webdriver
   - sequel
   - sidekiq
+  - simple_form
   - sinatra
   - spring
   - spring-watcher-listen
   - sqlite3
+  - stripe
   - sysrandom
   - terminal-notifier
   - thor
   - tilt
   - turbolinks
+  - turbolinks_render
   - twitter_ebooks
   - values
+  - vault
   - web-console
   - webpacker
