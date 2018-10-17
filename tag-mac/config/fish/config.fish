@@ -30,6 +30,7 @@ set PATH \
     /sbin
 
 set extra_paths \
+    /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin \
     /Applications/MacVim.app/Contents/bin \
     $HOME/Library/Python/3.7/bin \
     $HOME/.cargo/bin \
