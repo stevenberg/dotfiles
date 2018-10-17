@@ -116,9 +116,11 @@ let g:ale_fixers = {
 \   'vue': ['prettier'],
 \}
 let g:ale_linters = {
+\    'java': [],
 \   'javascript': ['eslint', 'prettier'],
 \}
 let g:ale_c_clangformat_options = '-style=WebKit'
+let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sh_shfmt_options = '-i 4'
 let g:ale_fix_on_save = 1
 let g:ctrlp_user_command = "rg --files --hidden --follow -g '!.git' -g '!.keep' %s"
