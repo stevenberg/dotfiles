@@ -12,6 +12,8 @@
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     prune = fetch --prune
     stash-all = stash save --include-untracked
+    author = commit --amend --no-edit --author
+    reset-author = commit --amend --reset-author --no-edit
 [color]
     ui = true
 [color "diff"]
