@@ -109,7 +109,7 @@ let g:ale_fixers = {
 \   'markdown': ['prettier'],
 \   'php': ['php_cs_fixer'],
 \   'python': ['autopep8', 'isort'],
-\   'ruby': ['rubocop'],
+\   'ruby': ['rubocop', 'rufo'],
 \   'rust': ['rustfmt'],
 \   'scss': ['stylelint', 'prettier'],
 \   'sh': ['shfmt'],
