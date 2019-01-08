@@ -40,6 +40,9 @@ HostName 10.1.0.155
 Host excel-live8
 HostName 10.1.0.156
 
+Host excel-live9
+HostName 10.1.0.159
+
 Host excel-mysql-dev
 HostName 10.1.0.17
 
@@ -51,3 +54,6 @@ HostName 10.1.0.149
 
 Host excel-internal2
 HostName 10.1.0.150
+
+Host ubuntu-dev
+HostName 10.1.0.157
