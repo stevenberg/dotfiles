@@ -47,7 +47,6 @@ end
 
 if status --is-interactive
     source $HOME/.config/iterm2/shell_integration.fish
-    source $HOME/.config/base16-shell/profile_helper.fish
 
     if type -q brew
         brew command command-not-found-init > /dev/null ^&1; and source (brew command-not-found-init)
