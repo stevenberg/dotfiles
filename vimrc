@@ -116,6 +116,7 @@ let g:ale_fixers = {
 \   'vue': ['prettier'],
 \}
 let g:ale_linters = {
+\    'fish': [],
 \    'java': [],
 \   'javascript': ['eslint', 'prettier'],
 \}

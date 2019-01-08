@@ -21,18 +21,6 @@ set fish_greeting
 
 if status --is-interactive
     source $HOME/.config/iterm2/shell_integration.fish
-
-    if type -q brew
-        brew command command-not-found-init > /dev/null 2>&1; and source (brew command-not-found-init)
-    end
-
-    if type -q thefuck
-        thefuck --alias | source
-    end
-
-    if test -f /usr/local/share/autojump/autojump.fish
-        source /usr/local/share/autojump/autojump.fish
-    end
 end
 
 if type -q rbenv
