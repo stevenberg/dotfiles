@@ -1,5 +1,3 @@
-set SCRIPT_DIR (realpath (dirname (status -f)))
-
 # load currently active theme...
 if test -e ~/.base16_theme
   sh (realpath ~/.base16_theme)
@@ -7,7 +5,7 @@ end
 
 
 # set aliases, like base16_*...
-for SCRIPT in $SCRIPT_DIR/scripts/*.sh
+for SCRIPT in ~/.config/base16-shell/scripts/*.sh
   set THEME (basename $SCRIPT .sh)
   function $THEME -V SCRIPT -V THEME
     sh $SCRIPT
