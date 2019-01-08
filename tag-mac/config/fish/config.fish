@@ -19,37 +19,11 @@ abbr -a lr ls -R
 
 set fish_greeting
 
-set PATH \
-    /usr/local/opt/python/libexec/bin \
-    /usr/local/go/bin \
-    /usr/local/bin \
-    /usr/bin \
-    /bin \
-    /usr/local/sbin \
-    /usr/sbin \
-    /sbin
-
-set extra_paths \
-    /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin \
-    /Applications/MacVim.app/Contents/bin \
-    $HOME/Library/Python/3.7/bin \
-    $HOME/.cargo/bin \
-    $HOME/.composer/vendor/bin \
-    $GOPATH/bin \
-    $HOME/.rbenv/bin \
-    $HOME/bin
-
-for extra_path in $extra_paths
-    if test -d "$extra_path"
-        set PATH $extra_path $PATH
-    end
-end
-
 if status --is-interactive
     source $HOME/.config/iterm2/shell_integration.fish
 
     if type -q brew
-        brew command command-not-found-init > /dev/null ^&1; and source (brew command-not-found-init)
+        brew command command-not-found-init > /dev/null 2>&1; and source (brew command-not-found-init)
     end
 
     if type -q thefuck
