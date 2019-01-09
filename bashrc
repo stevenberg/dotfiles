@@ -31,24 +31,10 @@ if [[ $- == *i* ]]; then
     source "$HOME/.config/iterm2/shell_integration.bash"
     eval "$("$HOME"/.config/base16-shell//profile_helper.sh)"
 
-    if [ -x "$(command -v thefuck)" ]; then
-        eval "$(SHELL=bash thefuck --alias)"
-    fi
-
-    if [ -x "$(command -v brew)" ]; then
-        if brew command command-not-found-init >/dev/null 2>&1; then
-            eval "$(brew command-not-found-init)"
-        fi
-    fi
-
     if [ -x "$(command -v lesspipe)" ]; then
         eval "$(lesspipe)"
     elif [ -x "$(command -v lespipe.sh)" ]; then
         eval "$(lesspipe.sh)"
-    fi
-
-    if [ -f /usr/local/etc/profile.d/autojump.sh ]; then
-        source /usr/local/etc/profile.d/autojump.sh
     fi
 fi
 
