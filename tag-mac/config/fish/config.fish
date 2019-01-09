@@ -1,3 +1,4 @@
+set -x HOMEBREW_INSTALL_CLEANUP 1
 set -x BROWSER 'open'
 set -x CDPATH . "$HOME/dev/repos"
 set -x EDITOR 'vim'
