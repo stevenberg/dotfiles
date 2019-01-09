@@ -4,8 +4,6 @@ things:
   - autopep8
   - gitlint
   - isort
-  - neovim
-  - neovim-remote
   - pylint
   - vim-vint
   - yamllint

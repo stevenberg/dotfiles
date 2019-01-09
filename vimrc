@@ -13,7 +13,6 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('kana/vim-textobj-entire')
 call minpac#add('kana/vim-textobj-lastpat')
 call minpac#add('kana/vim-textobj-user')
-call minpac#add('kassio/neoterm', {'type': 'opt'})
 call minpac#add('mattn/emmet-vim')
 call minpac#add('nelstrom/vim-textobj-rubyblock')
 call minpac#add('nelstrom/vim-visual-star-search')
@@ -47,10 +46,6 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('w0rp/ale')
 
-if has('nvim')
-  packadd neoterm
-endif
-
 set autowriteall
 set background=dark
 set backupdir=~/.cache/vim,~/,/tmp
@@ -79,20 +74,13 @@ set splitright
 set tabstop=4
 set tags+=vendor/tags,~/.rbenv/versions/**/tags
 set termguicolors
+set undodir=~/.cache/vim,~/,/tmp
 set undofile
 
 if has('gui')
   set guicursor+=n-v-c:blinkon0
   set guifont=SF\ Mono:h12
   set guioptions=gm
-endif
-
-if !has('nvim')
-  set undodir=~/.cache/vim,~/,/tmp
-endif
-
-if has('nvim')
-  set inccommand=split
 endif
 
 let g:airline#extensions#ale#enabled = 1
@@ -139,10 +127,6 @@ let g:rubycomplete_rails = 1
 let g:rustfmt_autosave = 1
 let g:mapleader = "\<space>"
 
-if has('nvim')
-  let g:test#strategy='neoterm'
-endif
-
 if filereadable(expand('~/.vimrc_background'))
   let g:base16colorbase=256
   source ~/.vimrc_background
@@ -175,26 +159,6 @@ nnoremap <leader>wtf oputs '#' * 80<c-m>puts caller<c-m>puts '#' * 80<esc>
 
 nnoremap & :&&<cr>
 xnoremap & :&&<cr>
-
-if has('nvim')
-  highlight! link TermCursor Cursor
-  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-  tnoremap <M-h> <c-\><c-n><c-w>h
-  tnoremap <M-j> <c-\><c-n><c-w>j
-  tnoremap <M-k> <c-\><c-n><c-w>k
-  tnoremap <M-l> <c-\><c-n><c-w>l
-  inoremap <M-h> <Esc><c-w>h
-  inoremap <M-j> <Esc><c-w>j
-  inoremap <M-k> <Esc><c-w>k
-  inoremap <M-l> <Esc><c-w>l
-  nnoremap <M-h> <c-w>h
-  nnoremap <M-j> <c-w>j
-  nnoremap <M-k> <c-w>k
-  nnoremap <M-l> <c-w>l
-  tnoremap <expr> <a-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
-endif
 
 augroup vimrc
   autocmd!
