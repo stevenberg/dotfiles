@@ -139,21 +139,11 @@ command! PackClean call minpac#clean()
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-nmap 0 ^
 nmap <leader>vr :tabedit $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
-nmap <leader>p :Files<cr>
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunction
+nmap <leader>n <Plug>RelativeNumberToggle
 
 nnoremap gm m
-nnoremap <leader>n :call NumberToggle()<cr>
 nnoremap <leader>s :SearchCount<cr>
 nnoremap <leader>wtf oputs '#' * 80<c-m>puts caller<c-m>puts '#' * 80<esc>
 
@@ -162,11 +152,6 @@ xnoremap & :&&<cr>
 
 augroup vimrc
   autocmd!
-  autocmd FocusLost,InsertEnter * :set norelativenumber
-  autocmd FocusGained,InsertLeave * :set relativenumber
-  autocmd Filetype help nmap <buffer> q :q<cr>
-  autocmd BufRead,BufNewFile *.es6 setfiletype javascript
-  autocmd BufRead,BufNewFile Brewfile setfiletype ruby
   autocmd BufWritePre /tmp/*,/var/folders/* setlocal noundofile
   autocmd VimResized * :wincmd =
 
