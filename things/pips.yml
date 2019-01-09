@@ -1,9 +1,7 @@
 ---
 command: pip install --user --upgrade %{thing}
 things:
-  - autopep8
   - gitlint
   - isort
   - pylint
   - vim-vint
-  - yamllint
