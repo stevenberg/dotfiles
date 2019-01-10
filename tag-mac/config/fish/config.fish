@@ -4,7 +4,7 @@ set -x CDPATH . "$HOME/dev/repos"
 set -x EDITOR 'vim'
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
 set -x GOPATH "$HOME/go"
-set -x GOROOT "/usr/local/opt/go"
+set -x GOROOT "/usr/local/opt/go/libexec"
 set -x GREP_OPTIONS '--color=auto'
 set -x LC_ALL 'en_US.UTF-8'
 set -x LESS '-F -g -i -R -w -X -z-3'
