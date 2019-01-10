@@ -15,9 +15,6 @@ set -x RUBY_CONFIGURE_OPTS --with-jemalloc
 
 umask 022
 
-abbr -a ax chmod a+x
-abbr -a lr ls -R
-
 set fish_greeting
 
 if status --is-interactive
