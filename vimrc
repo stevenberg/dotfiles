@@ -87,30 +87,6 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#whitespace#enabled = 1
-let g:ale_fixers = {
-\   'c': ['clang-format'],
-\   'cpp': ['clang-format'],
-\   'css': ['stylelint', 'prettier'],
-\   'go': ['goimports'],
-\   'javascript': ['eslint', 'prettier'],
-\   'json': ['prettier'],
-\   'markdown': ['prettier'],
-\   'php': ['php_cs_fixer'],
-\   'python': ['autopep8', 'isort'],
-\   'ruby': ['rubocop', 'rufo'],
-\   'rust': ['rustfmt'],
-\   'scss': ['stylelint', 'prettier'],
-\   'sh': ['shfmt'],
-\   'vue': ['prettier'],
-\}
-let g:ale_linters = {
-\    'fish': [],
-\    'java': [],
-\   'javascript': ['eslint', 'prettier'],
-\}
-let g:ale_c_clangformat_options = '-style=WebKit'
-let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_sh_shfmt_options = '-i 4'
 let g:ale_fix_on_save = 1
 let g:ctrlp_user_command = "rg --files --hidden --follow -g '!.git' -g '!.keep' %s"
 let g:delimitMate_matchpairs = '(:),[:],{:}'
@@ -120,11 +96,9 @@ let g:EasyClipShareYanksDirectory = '~/.cache/vim'
 let g:EasyClipUseSubstituteDefaults = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:go_fmt_autosave = 0
-let g:php_cs_fixer_config_file = '.php_cs.dist'
 let g:ruby_indent_block_style = 'do'
 let g:rubycomplete_load_gemfile = 1
 let g:rubycomplete_rails = 1
-let g:rustfmt_autosave = 1
 let g:mapleader = "\<space>"
 
 if filereadable(expand('~/.vimrc_background'))
