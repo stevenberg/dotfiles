@@ -1,1 +1,1 @@
-set -x CDPATH $CDPATH "$HOME/dev/excel/repos"
+set -x CDPATH $CDPATH "$HOME/Development/excel/repos"

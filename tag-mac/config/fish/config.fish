@@ -1,8 +1,8 @@
 set -x BROWSER 'open'
-set -x CDPATH . "$HOME/dev/repos"
+set -x CDPATH . "$HOME/Development/repos"
 set -x EDITOR 'vim'
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
-set -x GOPATH "$HOME/go"
+set -x GOPATH "$HOME/Development/go"
 set -x GOROOT '/usr/local/opt/go/libexec'
 set -x GREP_OPTIONS '--color=auto'
 set -x HOMEBREW_INSTALL_CLEANUP 1
