@@ -1,5 +1,6 @@
 packadd minpac
 call minpac#init()
+call minpac#add('JulesWang/css.vim')
 call minpac#add('Raimondi/delimitMate')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('ap/vim-css-color')
