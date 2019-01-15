@@ -1,0 +1,7 @@
+#!/bin/sh
+brew upgrade
+rbenv update
+rbenv each -v gem update
+rbenv each -v gem cleanup
+rustup update
+vim +PackUpdate +q
