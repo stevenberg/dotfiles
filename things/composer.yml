@@ -4,4 +4,3 @@ things:
   - laravel/installer
   - laravel/lumen-installer
   - laravel-zero/installer
-  - psy/psysh

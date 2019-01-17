@@ -1,7 +1,0 @@
----
-command: pip install --user --upgrade %{thing}
-things:
-  - gitlint
-  - isort
-  - pylint
-  - vim-vint
