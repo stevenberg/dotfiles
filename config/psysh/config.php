@@ -15,4 +15,5 @@ return [
     'eraseDuplicates' => true,
     'useBracketedPaste' => true,
     'warnOnMultipleConfigs' => true,
+    'usePcntl' => false,
 ];
