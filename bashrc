@@ -15,7 +15,6 @@ PS1='\u@\h \w \$ '
 
 export EDITOR='vim'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
-export GREP_OPTIONS='--color=auto'
 export LC_ALL='en_US.UTF-8'
 export LESS='-F -g -i -r -w -X -z-3'
 export LESS_ADVANCED_PREPROCESSOR=1
