@@ -7,6 +7,7 @@ StrictHostKeyChecking ask
 ControlMaster auto
 ControlPath ~/.ssh/master-%r@%h:%p
 ControlPersist 60
+HashKnownHosts yes
 IdentityFile ~/.ssh/id_ed25519
 IdentitiesOnly yes
 
@@ -14,7 +15,7 @@ Host web2.stevenberg.net
 ProxyCommand none
 
 Host *.stevenberg.net
-ProxyCommand spipe -t %h:8022 -k ~/.ssh/spiped_%h_key
+ProxyCommand spipe -t %h:8022 -k ~/.ssh/%h/spiped.key
 
 Host excel-dev
 HostName 10.1.0.10
