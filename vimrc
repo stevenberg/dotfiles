@@ -8,6 +8,7 @@ call minpac#add('chriskempson/base16-vim', {'type': 'opt'})
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('editorconfig/editorconfig-vim')
+call minpac#add('icymind/NeoSolarized')
 call minpac#add('janko-m/vim-test')
 call minpac#add('jremmen/vim-ripgrep')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -78,10 +79,16 @@ set termguicolors
 set undodir=~/.cache/vim,~/,/tmp
 set undofile
 
+colorscheme NeoSolarized
+
 if has('gui')
   set guicursor+=n-v-c:blinkon0
   set guifont=SF\ Mono:h12
   set guioptions=gm
+  if filereadable(expand('~/.vimrc_background'))
+    let g:base16colorbase=256
+    source ~/.vimrc_background
+  endif
 endif
 
 let g:airline#extensions#ale#enabled = 1
@@ -101,11 +108,6 @@ let g:ruby_indent_block_style = 'do'
 let g:rubycomplete_load_gemfile = 1
 let g:rubycomplete_rails = 1
 let g:mapleader = "\<space>"
-
-if filereadable(expand('~/.vimrc_background'))
-  let g:base16colorbase=256
-  source ~/.vimrc_background
-endif
 
 command! SearchCount :%s///gn
 command! PackUpdate call minpac#update()
