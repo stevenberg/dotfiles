@@ -4,9 +4,9 @@ call minpac#add('JulesWang/css.vim')
 call minpac#add('Raimondi/delimitMate')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('ap/vim-css-color')
-call minpac#add('chriskempson/base16-vim', {'type': 'opt'})
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('danielwe/base16-vim', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('icymind/NeoSolarized')
 call minpac#add('janko-m/vim-test')
@@ -79,16 +79,15 @@ set termguicolors
 set undodir=~/.cache/vim,~/,/tmp
 set undofile
 
-colorscheme NeoSolarized
+if filereadable(expand('~/.vimrc_background'))
+    let g:base16colorbase=256
+    source ~/.vimrc_background
+endif
 
 if has('gui')
   set guicursor+=n-v-c:blinkon0
   set guifont=SF\ Mono:h12
   set guioptions=gm
-  if filereadable(expand('~/.vimrc_background'))
-    let g:base16colorbase=256
-    source ~/.vimrc_background
-  endif
 endif
 
 let g:airline#extensions#ale#enabled = 1
