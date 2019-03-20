@@ -66,11 +66,9 @@ things:
   - rbnacl-libsodium
   - rcodetools
   - redis
-  - reek
   - resque
   - rspec
   - rubocop
-  - rufo
   - sass
   - sass-rails
   - scenic
@@ -83,6 +81,7 @@ things:
   - spring
   - spring-watcher-listen
   - sqlite3
+  - standardrb
   - stripe
   - sysrandom
   - terminal-notifier
