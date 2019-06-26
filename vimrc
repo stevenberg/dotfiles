@@ -52,7 +52,7 @@ set autowriteall
 set background=dark
 set backupdir=~/.cache/vim,~/,/tmp
 set clipboard=unnamed
-set colorcolumn=81
+set colorcolumn=100
 set cursorline
 set directory=~/.cache/vim,~/,/tmp
 set expandtab
