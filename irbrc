@@ -1,13 +1,10 @@
-# frozen_string_literal: true
-
+require "irb/completion"
 require "awesome_print"
 
-require "bond"
-Bond.start
-
-require "irbtools/configure"
-Irbtools.welcome_message = nil
-Irbtools.start
+IRB.conf[:AUTO_INDENT] = true
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:USE_READLINE] = true
 
 begin
   include FactoryBot::Syntax::Methods
