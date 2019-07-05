@@ -10,7 +10,7 @@ command =
 
 IO.popen(command, "r") do |p|
   url = p.read.chomp
-  response = HTTParty.get(url, headers: { "User-Agent" => "Get Canonical URL" })
+  response = HTTParty.get(url, headers: {"User-Agent" => "Get Canonical URL"})
   document = Oga.parse_html(response)
   element = document.at_xpath("//link[@rel='canonical']")
   canonical_url = element&.get("href") || url

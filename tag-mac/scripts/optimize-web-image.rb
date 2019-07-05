@@ -82,10 +82,10 @@ ARGV.each do |arg|
 
   if directives.match?(/h/)
     halfsize = if filename.match?(/@2x$/)
-                 File.join(folder, filename.sub(/@2x$/, "") + extension)
-               else
-                 File.join(folder, filename + "_sm" + extension)
-               end
+      File.join(folder, filename.sub(/@2x$/, "") + extension)
+    else
+      File.join(folder, filename + "_sm" + extension)
+    end
     print "Halving #{input} -> #{halfsize}... "
     puts %(/usr/local/bin/convert "#{input}" -adaptive-resize 50% "#{halfsize}" &> /dev/null)
     res = system %(/usr/local/bin/convert "#{input}" -adaptive-resize 50% "#{halfsize}" &> /dev/null)
