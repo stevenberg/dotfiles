@@ -1,0 +1,80 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "json"
+require "net/http"
+
+def make_request(uri, credentials, data)
+  uri = URI(uri)
+  request = Net::HTTP::Post.new(uri, "Content-Type" => "application/json")
+  request.basic_auth(credentials[:username], credentials[:password])
+  request.body = data.to_json
+
+  response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http|
+    http.request(request)
+  }
+
+  unless response.is_a?(Net::HTTPSuccess)
+    warn "#{uri}\n#{data}"
+    case response
+    when Net::HTTPBadRequest
+      json = JSON.parse(response.body)
+      if json.key?("error") && json["error"].key?("message")
+        puts json["error"]["message"]
+      else
+        puts "bad request"
+      end
+    when Net::HTTPUnauthorized
+      warn "authentication failed"
+    when Net::HTTPForbidden
+      warn "authorization failed"
+    when Net::HTTPNotFound
+      warn "not found"
+    else
+      warn "request failed"
+    end
+
+    exit 1
+  end
+end
+
+abort "usage: git slyfox-init PROJECT_KEY [--ssh|--https]" if ARGV.empty?
+
+credentials = {
+  username: ENV["BITBUCKET_USERNAME"],
+  password: ENV["BITBUCKET_PASSWORD"],
+}
+
+name = File.basename(Dir.getwd)
+forks = ["iosos", "steven"].map { |f| "#{name}-#{f}" }
+project_key = ARGV.first
+origin_url = if ARGV.last == "--ssh"
+  "git@bitbucket.org:example-username/#{name}.git"
+else
+  "https://bitbucket.org/slyfoxcreative/#{name}.git"
+end
+
+make_request(
+  "https://api.bitbucket.org/2.0/repositories/slyfoxcreative/#{name}",
+  credentials,
+  scm: "git",
+  is_private: true,
+  project: {key: project_key},
+)
+
+puts "created slyfoxcreative/#{name}"
+
+system("git", "remote", "add", "origin", origin_url)
+system("git", "push", "-u", "origin", "master")
+
+forks.each do |fork_name|
+  make_request(
+    "https://api.bitbucket.org/2.0/repositories/slyfoxcreative/#{name}/forks",
+    credentials,
+    name: fork_name,
+    owner: {username: "slyfoxcreative"},
+    project: {key: project_key},
+  )
+
+  puts "created slyfoxcreative/#{fork_name}"
+end

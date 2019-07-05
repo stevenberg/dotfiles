@@ -10,5 +10,5 @@ abort "usage: git feature NEW_BRANCH START_POINT" if ARGV.empty?
 new_branch, start_point = ARGV
 start_point = "master" if start_point.nil?
 
-system! "git fetch upstream #{start_point}"
-system! "git checkout -b #{new_branch} upstream/#{start_point}"
+system!("git fetch upstream #{start_point}")
+system!("git checkout -b #{new_branch} upstream/#{start_point}")
