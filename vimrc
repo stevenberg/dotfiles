@@ -5,12 +5,12 @@ call minpac#add('Raimondi/delimitMate')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('ap/vim-css-color')
 call minpac#add('craigemery/vim-autotag')
-call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('danielwe/base16-vim', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('icymind/NeoSolarized')
 call minpac#add('janko-m/vim-test')
-call minpac#add('jremmen/vim-ripgrep')
+call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('kana/vim-textobj-entire')
 call minpac#add('kana/vim-textobj-lastpat')
@@ -125,6 +125,8 @@ nnoremap <leader>wtf oputs '#' * 80<c-m>puts caller<c-m>puts '#' * 80<esc>
 
 nnoremap & :&&<cr>
 xnoremap & :&&<cr>
+
+nnoremap <c-p> :Files<cr>
 
 augroup vimrc
   autocmd!
