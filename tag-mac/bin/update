@@ -2,7 +2,6 @@
 brew upgrade
 rbenv update
 rbenv each -v gem update
-rbenv each -v gem cleanup
 rustup self update
 rustup update
 vim +PackUpdate +q
