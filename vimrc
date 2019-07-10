@@ -4,11 +4,8 @@ call minpac#add('JulesWang/css.vim')
 call minpac#add('Raimondi/delimitMate')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('ap/vim-css-color')
-call minpac#add('craigemery/vim-autotag')
 call minpac#add('danielwe/base16-vim', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
-call minpac#add('icymind/NeoSolarized')
-call minpac#add('janko-m/vim-test')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -95,7 +92,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#whitespace#enabled = 1
 let g:ale_fix_on_save = 1
-let g:ctrlp_user_command = "rg --files --hidden --follow -g '!.git' -g '!.keep' %s"
 let g:delimitMate_matchpairs = '(:),[:],{:}'
 let g:EasyCLipAutoFormat = 1
 let g:EasyClipShareYanksFile = 1
