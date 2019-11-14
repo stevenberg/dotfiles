@@ -71,7 +71,7 @@ set spelllang=en_us
 set splitbelow
 set splitright
 set tabstop=4
-set tags+=vendor/tags,~/.rbenv/versions/**/tags
+set tags+=vendor/tags,~/.rbenv/versions/**/tags,./.git/tags
 set termguicolors
 set undodir=~/.cache/vim,~/,/tmp
 set undofile
@@ -83,7 +83,7 @@ endif
 
 if has('gui')
   set guicursor+=n-v-c:blinkon0
-  set guifont=SF\ Mono:h12
+  set guifont=Menlo:h12
   set guioptions=gm
 endif
 
