@@ -11,6 +11,9 @@ HashKnownHosts yes
 IdentityFile ~/.ssh/id_ed25519
 IdentitiesOnly yes
 
+Host tunnel.browserling.com
+IdentityFile ~/.ssh/id_rsa
+
 Host web2.stevenberg.net
 ProxyCommand none
 
