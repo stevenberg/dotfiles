@@ -43,7 +43,7 @@ call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('w0rp/ale')
+call minpac#add('dense-analysis/ale')
 
 set autowriteall
 set background=dark
