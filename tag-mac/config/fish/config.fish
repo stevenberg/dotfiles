@@ -16,6 +16,16 @@ umask 022
 
 set fish_greeting
 
+set -x PATH \
+    /Applications/MacVim.app/Contents/bin \
+    /Users/steven/Library/Python/3.7/bin \
+    /Users/steven/.cargo/bin \
+    /Users/steven/.composer/vendor/bin \
+    /Users/steven/go/bin \
+    /Users/steven/.rbenv/bin \
+    /Users/steven/bin \
+    $PATH
+
 if status --is-interactive
     source $HOME/.config/iterm2/shell_integration.fish
 end
