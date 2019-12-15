@@ -17,6 +17,7 @@ umask 022
 set fish_greeting
 
 set -x PATH \
+    /usr/local/opt/python/libexec/bin \
     /Applications/MacVim.app/Contents/bin \
     /Users/steven/Library/Python/3.7/bin \
     /Users/steven/.cargo/bin \
