@@ -36,7 +36,7 @@
     verbose = true
 [core]
     trustctime = false
-    pager = diff-so-fancy | less -S
+    pager = delta --dark --theme base16
 [diff]
     compactionHeuristic = true
     colorMoved = default
