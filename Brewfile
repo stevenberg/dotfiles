@@ -51,6 +51,7 @@ brew "libyaml"
 brew "litecli"
 brew "lumen-installer"
 brew "magic-wormhole"
+brew "mas"
 brew "memcached"
 brew "mercurial"
 brew "mkcert"
@@ -105,3 +106,17 @@ brew "xsv"
 brew "yamllint"
 brew "yarn"
 brew "zlib"
+mas "1Blocker", id: 1107421413
+mas "ColorSnapper2", id: 969418666
+mas "Contrast", id: 1254981365
+mas "Icon Slate", id: 439697913
+mas "iStat Mini", id: 927292435
+mas "Moom", id: 419330170
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Soulver", id: 413965349
+mas "Speedtest", id: 1153157709
+mas "StopTheMadness", id: 1376402589
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
