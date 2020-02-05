@@ -83,7 +83,7 @@ endif
 
 if has('gui')
   set guicursor+=n-v-c:blinkon0
-  set guifont=Menlo:h12
+  set guifont=JetBrains\ Mono:h12
   set guioptions=gm
 endif
 
