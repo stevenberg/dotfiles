@@ -1,5 +1,5 @@
 function bid
-    set shortname (basename $argv[1] .app | sed 's/ /.*/g')
+    set shortname (basename $argv[1] .app)
     if test -d "/Applications/$shortname.app"
         set location "/Applications/$shortname.app"
     else
