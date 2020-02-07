@@ -1,4 +1,3 @@
-require "awesome_print"
 require "semantic"
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
