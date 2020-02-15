@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require "open3"
+
+def error(*args)
+  abort("\n== Command '#{args.join(" ")}' failed ==")
+end
+
+def system!(*args)
+  system(*args) || error(*args)
+end
+
+output, status = Open3.capture2("vagrant", "box", "list")
+
+unless status.success?
+  warn output
+  error("vagrant", "box", "list")
+end
+
+boxes = output.lines.each_with_object(Hash.new { |h, k| h[k] = [] }) { |line, boxes|
+  match = line.match(/\A([a-z0-9\/]+) \(.+, ([\d.]+)\)\Z/)
+  box = match[1]
+  version = match[2]
+  boxes[box].push(version)
+}
+
+boxes.each do |box, versions|
+  versions[..-2].each do |version|
+    system!("vagrant", "box", "remove", box, "--box-version", version)
+  end
+end

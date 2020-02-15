@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+require "git"
+require "json"
+require "pathname"
+require "zip"
+
+EXTRACT_DIRECTORY = File.join(Dir.pwd, "tmp")
+
+config = JSON.parse(File.read("config.json"))
+
+Pathname(Dir.pwd)
+  .children
+  .reject { |c| c == Pathname(".git").realpath }
+  .reject { |c| c == Pathname(".editorconfig").realpath }
+  .reject { |c| c == Pathname(".gitignore").realpath }
+  .reject { |c| c == Pathname("archive.zip").realpath }
+  .reject { |c| c == Pathname("config.json").realpath }
+  .each(&:rmtree)
+
+Zip::File.open("archive.zip") do |zip|
+  zip.each do |entry|
+    zip.extract(entry, File.join(EXTRACT_DIRECTORY, entry.name))
+  end
+end
+
+FileUtils.cp_r(Dir.glob(File.join(EXTRACT_DIRECTORY, config["path"], "*")), Dir.pwd)
+FileUtils.remove_dir(EXTRACT_DIRECTORY)
+
+composer = JSON.parse(File.read("composer.json"))
+version = composer["version"] += "-p517"
+
+File.write("composer.json", JSON.pretty_generate(composer))
+
+git = Git.open(Dir.pwd)
+git.add
+git.commit("Update to #{version}")
+git.push

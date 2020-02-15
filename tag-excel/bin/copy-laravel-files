@@ -1,0 +1,44 @@
+#!/bin/sh
+
+cp ../laravel_starter/.babelrc .
+cp ../laravel_starter/.editorconfig .
+cp ../laravel_starter/.env.base .
+cp ../laravel_starter/.env.dusk.base .
+cp ../laravel_starter/.env.local.example .
+cp ../laravel_starter/.eslintrc.json .
+cp ../laravel_starter/.gitignore .
+cp ../laravel_starter/.php_cs.dist .
+cp ../laravel_starter/.prettierignore .
+cp ../laravel_starter/.prettierrc.json .
+cp ../laravel_starter/.projections.json .
+cp ../laravel_starter/.stylelintrc.json .
+cp ../laravel_starter/.yamllint.yml .
+cp ../laravel_starter/.yarnrc .
+cp ../laravel_starter/.yarnrc.yml .
+cp ../laravel_starter/Vagrantfile .
+cp ../laravel_starter/app/Console/Kernel.php app/Console/
+cp ../laravel_starter/app/Exceptions/Handler.php app/Exceptions/
+cp ../laravel_starter/app/Http/Kernel.php app/Http/
+cp ../laravel_starter/app/Http/Middleware/*.php app/Http/Middleware/
+cp ../laravel_starter/app/Providers/*.php app/Providers/
+cp ../laravel_starter/artisan .
+cp ../laravel_starter/bootstrap/app.php bootstrap/
+cp ../laravel_starter/config/*.php config/
+cp ../laravel_starter/phpunit.dusk.xml .
+cp ../laravel_starter/phpunit.xml .
+cp ../laravel_starter/provisioning/files/* provisioning/files/
+cp ../laravel_starter/provisioning/playbook.yml provisioning/
+cp ../laravel_starter/rector.yml .
+cp ../laravel_starter/resources/lang/en/* resources/lang/en/
+cp ../laravel_starter/server.php .
+cp ../laravel_starter/tests/*.php tests/
+cp ../laravel_starter/webpack.mix.js .
+
+rm -rf .yarn
+cp -r ../laravel_starter/.yarn .
+
+for f in ConfirmPassword ForgotPassword Login Register ResetPassword Verification; do
+    if [ -f app/Http/Controllers/Auth/"$f"Controller.php ]; then
+        cp ../laravel_starter/app/Http/Controllers/Auth/"$f"Controller.php app/Http/Controllers/Auth/
+    fi
+done
