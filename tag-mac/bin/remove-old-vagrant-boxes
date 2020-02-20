@@ -18,7 +18,7 @@ unless status.success?
 end
 
 boxes = output.lines.each_with_object(Hash.new { |h, k| h[k] = [] }) { |line, boxes|
-  match = line.match(/\A([a-z0-9\/]+) \(.+, ([\d.]+)\)\Z/)
+  match = line.match(/\A([a-z0-9\/.\-]+)\s+\(.+, ([\d.]+)\)\Z/)
   box = match[1]
   version = match[2]
   boxes[box].push(version)
