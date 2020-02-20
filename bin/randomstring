@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
 
 begin
   require "sysrandom/securerandom"
@@ -7,16 +6,23 @@ rescue LoadError
   require "securerandom"
 end
 
-SEGMENT_SIZE = 4
+require "optimist"
 
-count = (ARGV.first || "4").to_i * SEGMENT_SIZE
+options = Optimist.options {
+  opt :segment, "Segment size", default: 4
+  opt :count, "Number of segments", default: 4
+  opt :dashes, "Include dashes between segments", default: true
+}
 
-abort "argument must be an integer greater than 0" if count <= 0
+abort "segment must be an integer greater than 0" if options[:segment] <= 0
+abort "count must be an integer greater than 0" if options[:count] <= 0
+
+count = options[:count] * options[:segment]
 
 characters = ["A".."Z", "a".."z", "0".."9"].flat_map(&:to_a)
 
 puts Array
   .new(count) { characters[SecureRandom.random_number(characters.size)] }
-  .each_slice(SEGMENT_SIZE)
+  .each_slice(options[:segment])
   .map(&:join)
-  .join("-")
+  .join(options[:dashes] ? "-" : "")
