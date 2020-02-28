@@ -1,0 +1,77 @@
+#!/usr/bin/env ruby
+
+require "cgi"
+require "open3"
+
+def applescript(application:, command:)
+  script = "tell application \"#{application}\" to #{command}"
+  output, status = Open3.capture2("osascript", "-e", script)
+  unless status.success?
+    warn "AppleScript failed: '#{script}'"
+    warn output
+    exit 1
+  end
+  output
+end
+
+def tot(dot:, action: "", text: nil)
+  url = "tot://#{dot}/#{action}"
+  url += "?text=#{CGI.escape(text)}" unless text.nil?
+  applescript(application: "Tot", command: "open location \"#{url}\"")
+end
+
+if ARGV.first == "-h"
+  puts "usage: tot [0-7] -o           open dot"
+  puts "       tot [0-7] -r           read dot"
+  puts "       tot [0-7] -c           clear dot"
+  puts "       tot [0-7] -a <file>    append file to dot"
+  puts "       tot [0-7] -a -         append standard input to dot"
+  exit
+end
+
+dot, action, file = ARGV
+
+abort("missing dot") if dot.nil?
+abort("invalid dot #{dot}") unless dot.match?(/\A[0-7]\Z/)
+
+abort("missing action") if action.nil?
+abort("invalid action #{action}") unless action.match?(/\A-[orca]\Z/)
+
+if dot == "0"
+  ("1".."7").each do |test_dot|
+    content = tot(dot: test_dot, action: "content")
+    if content.match?(/\A\s*\Z/)
+      dot = test_dot
+      tot(dot: dot, action: "replace", text: "")
+      break
+    end
+  end
+  abort("no empty dots") if dot == "0"
+end
+
+case action
+when "-o"
+  tot(dot: dot)
+  applescript(application: "Tot", command: "activate")
+
+when "-r"
+  puts tot(dot: dot, action: "content")
+
+when "-c"
+  tot(dot: dot, action: "replace", text: "")
+
+when "-a"
+  abort("missing file") if file.nil?
+
+  text = if file == "-"
+    $stdin.read
+  else
+    begin
+      File.read(file)
+    rescue
+      abort("can't read file #{file}")
+    end
+  end
+
+  tot(dot: dot, action: "append", text: text)
+end

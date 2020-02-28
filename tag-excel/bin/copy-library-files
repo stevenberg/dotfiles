@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cp ../library_starter/.editorconfig .
+cp ../library_starter/.gitignore .
+cp ../library_starter/.php_cs.dist .
+cp ../library_starter/phpunit.xml .
+cp ../library_starter/rector.yml .
+cp ../library_starter/tests/bootstrap.php tests/
