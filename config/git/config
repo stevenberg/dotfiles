@@ -76,3 +76,5 @@
 [user]
     name = Steven Berg
     email = steven@stevenberg.net
+[includeIf "gitdir:~/Development/excel/"]
+    path = config.excel
