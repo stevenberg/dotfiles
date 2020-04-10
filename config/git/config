@@ -1,5 +1,6 @@
 [alias]
-    branches = branch -a
+    st = status -sb
+    branches = branch -a -vv
     tags = tag
     stashes = stash list
     remotes = remote -v
