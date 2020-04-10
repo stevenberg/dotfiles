@@ -9,7 +9,6 @@ require "yaml"
 config = YAML.load_file("./git-repos.yml")
 url_prefix = config["url_prefix"]
 fork_postfix = config["fork_postfix"]
-user_email = config["user_email"]
 repositories = config["repositories"].map(&method(:Pathname))
 remotes = config["remotes"]
 
@@ -19,15 +18,12 @@ repositories.each do |base_repository|
   fork_url = URI.join(url_prefix, "#{fork_repository}.git")
 
   unless base_repository.exist?
-    Git.clone(base_url, base_repository).tap do |g|
-      g.config("user.email", user_email)
-    end
+    Git.clone(base_url, base_repository)
   end
 
   next if fork_repository.exist?
 
   Git.clone(fork_url, fork_repository).tap do |g|
-    g.config("user.email", user_email)
     g.config("remote.pushdefault", "origin")
     g.config("push.default", "current")
     g.add_remote("upstream", base_url)

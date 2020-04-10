@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for f in eslintrc.json php_cs.dist prettierrc.json styleintrc.json; do
+    if [ -f ".$f" ]; then
+        cp ../coding-styles/"$f" ".$f"
+    fi
+done
