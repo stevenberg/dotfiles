@@ -15,6 +15,7 @@
     stash-all = stash save --include-untracked
     author = commit --amend --no-edit --author
     reset-author = commit --amend --reset-author --no-edit
+    root = rev-parse --show-toplevel
 [color]
     ui = true
 [color "diff"]
