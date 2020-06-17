@@ -80,3 +80,5 @@
     email = steven@stevenberg.net
 [includeIf "gitdir:~/Development/excel/"]
     path = config.excel
+[pull]
+	rebase = false
