@@ -5,6 +5,10 @@ def system!(*args)
   system(*args) || abort("\n== Command #{args} failed ==")
 end
 
-abort "usage: git bugfix NEW_BRANCH" if ARGV.empty?
+abort "usage: git bugfix NEW_BRANCH START_POINT" if ARGV.empty?
 
-system!("git feature bugfix-#{ARGV.first}")
+new_branch, start_point = ARGV
+command = ["git", "feature", "bugfix-#{new_branch}"]
+command.push(start_point) unless start_point.nil?
+
+system!(*command)
