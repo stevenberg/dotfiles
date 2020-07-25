@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $(basename "$0") VOLUME_NAME VOLUME_DEVICE" >&2
+    exit 1
+fi
+
+volume_name=$1
+volume_device=$2
+
+# Stop if the volume is already mounted
+if diskutil info "$volume_device" | grep Mounted | grep -q Yes; then
+    exit
+fi
+
+password=$(security find-generic-password -l "$volume_name" -w)
+
+if echo "$password" | grep -i -q '^[0-9a-f]\+$'; then
+    password=$(ruby -e "puts ['$password'].pack('H*')")
+fi
+
+diskutil apfs unlockVolume "$volume_device" -passphrase "$password" >/dev/null
