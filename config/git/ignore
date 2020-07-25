@@ -18,6 +18,7 @@
 .rbenv-gemsets
 .tags
 .vagrant
+.vscode
 Icon
 Session.vim
 tags
