@@ -58,6 +58,7 @@
 [include]
     path = config.local
 [init]
+    defaultBranch = main
     templateDir = ~/.config/git/template
 [interactive]
     singleKey = true
