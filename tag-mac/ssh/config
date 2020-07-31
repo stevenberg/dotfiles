@@ -76,3 +76,6 @@ HostName 10.1.0.157
 
 Host excel-development1
 HostName 10.1.0.164
+
+Host excel-elasticsearch
+HostName 10.1.0.166
