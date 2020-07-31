@@ -1,3 +1,4 @@
+set -x ANSIBLE_ROLES_PATH "$HOME/.ansible/roles"
 set -x BROWSER 'open'
 set -x CDPATH . "$HOME/Development/Projects"
 set -x EDITOR 'vim'
