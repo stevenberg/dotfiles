@@ -1,81 +1,80 @@
 Host *
-UseKeychain yes
-AddKeysToAgent yes
-Protocol 2
-VisualHostKey yes
-StrictHostKeyChecking ask
-ControlMaster auto
-ControlPath ~/.ssh/master-%r@%h:%p
-ControlPersist 60
-HashKnownHosts yes
-IdentityFile ~/.ssh/id_ed25519
-IdentitiesOnly yes
+    UseKeychain yes
+    AddKeysToAgent yes
+    VisualHostKey yes
+    StrictHostKeyChecking ask
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlPersist 60
+    HashKnownHosts yes
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
 
 Host tunnel.browserling.com
-IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_rsa
 
 Host web2.stevenberg.net
-ProxyCommand none
+    ProxyCommand none
 
 Host *.stevenberg.net
-ProxyCommand spipe -t %h:8022 -k ~/.ssh/%h/spiped.key
+    ProxyCommand spipe -t %h:8022 -k ~/.ssh/%h/spiped.key
 
 Host excel-dev
-HostName 10.1.0.10
+    HostName 10.1.0.10
 
 Host excel-live2
-HostName 10.1.0.140
+    HostName 10.1.0.140
 
 Host excel-live3
-HostName 10.1.0.151
+    HostName 10.1.0.151
 
 Host excel-live4
-HostName 10.1.0.152
+    HostName 10.1.0.152
 
 Host excel-live5
-HostName 10.1.0.153
+    HostName 10.1.0.153
 
 Host excel-live6
-HostName 10.1.0.154
+    HostName 10.1.0.154
 
 Host excel-live7
-HostName 10.1.0.155
+    HostName 10.1.0.155
 
 Host excel-live8
-HostName 10.1.0.156
+    HostName 10.1.0.156
 
 Host excel-live9
-HostName 10.1.0.159
+    HostName 10.1.0.159
 
 Host excel-live11
-HostName 10.1.0.163
+    HostName 10.1.0.163
 
 Host excel-live12
-HostName 10.1.0.165
+    HostName 10.1.0.165
 
 Host excel-mysql-dev
-HostName 10.1.0.17
+    HostName 10.1.0.17
 
 Host excel-mysql-live
-HostName 10.1.0.30
+    HostName 10.1.0.30
 
 Host excel-internal1
-HostName 10.1.0.149
+    HostName 10.1.0.149
 
 Host excel-internal2
-HostName 10.1.0.150
+    HostName 10.1.0.150
 
 Host excel-internal3
-HostName 10.1.0.160
+    HostName 10.1.0.160
 
 Host excel-internal4
-HostName 10.1.0.161
+    HostName 10.1.0.161
 
 Host ubuntu-dev
-HostName 10.1.0.157
+    HostName 10.1.0.157
 
 Host excel-development1
-HostName 10.1.0.164
+    HostName 10.1.0.164
 
 Host excel-elasticsearch
-HostName 10.1.0.166
+    HostName 10.1.0.166
