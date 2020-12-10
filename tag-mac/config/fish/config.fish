@@ -28,6 +28,8 @@ set -x PATH \
     /Users/steven/bin \
     $PATH
 
+starship init fish | source
+
 if status --is-interactive
     source $HOME/.config/iterm2/shell_integration.fish
 end
