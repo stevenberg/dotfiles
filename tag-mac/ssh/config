@@ -78,3 +78,18 @@ Host excel-development1
 
 Host excel-elasticsearch
     HostName 10.1.0.166
+
+Host excel-mysql
+    HostName 10.1.0.167
+
+Host excel-owncloud
+    Hostname 10.1.0.170
+
+Host excel-internal
+    HostName 10.1.0.168
+
+Host excel-production-01
+    HostName 10.1.0.169
+
+Host excel-production-02
+    HostName 10.1.0.171
