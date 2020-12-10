@@ -23,7 +23,7 @@ set -x PATH \
     /Users/steven/Library/Python/3.7/bin \
     /Users/steven/.cargo/bin \
     /Users/steven/.composer/vendor/bin \
-    /Users/steven/go/bin \
+    /Users/steven/Development/Go/bin \
     /Users/steven/.rbenv/bin \
     /Users/steven/bin \
     $PATH
