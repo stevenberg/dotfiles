@@ -7,6 +7,7 @@ cp ../laravel_starter/.env.dusk.base .
 cp ../laravel_starter/.env.local.example .
 cp ../laravel_starter/.eslintrc.json .
 cp ../laravel_starter/.gitignore .
+cp ../laravel_starter/.ignore .
 cp ../laravel_starter/.php_cs.dist .
 cp ../laravel_starter/.prettierignore .
 cp ../laravel_starter/.prettierrc.json .
@@ -26,13 +27,14 @@ cp ../laravel_starter/bootstrap/app.php bootstrap/
 cp ../laravel_starter/config/*.php config/
 cp ../laravel_starter/phpunit.dusk.xml .
 cp ../laravel_starter/phpunit.xml .
-cp ../laravel_starter/provisioning/files/* provisioning/files/
-cp ../laravel_starter/provisioning/playbook.yml provisioning/
-cp ../laravel_starter/rector.yml .
+cp ../laravel_starter/public/index.php public/
 cp ../laravel_starter/resources/lang/en/* resources/lang/en/
 cp ../laravel_starter/server.php .
 cp ../laravel_starter/tests/*.php tests/
 cp ../laravel_starter/webpack.mix.js .
+
+rm -rf ./provisioning/*
+cp -r ../laravel_starter/provisioning/* ./provisioning/
 
 rm -rf .yarn
 cp -r ../laravel_starter/.yarn .
