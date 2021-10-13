@@ -12,6 +12,7 @@
 .foreman
 .gem
 .gems
+.php-cs-fixer.cache
 .php_cs
 .php_cs.cache
 .phpunit.result.cache
