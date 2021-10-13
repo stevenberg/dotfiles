@@ -1,7 +1,7 @@
 function mkdir -d "mkdir with subdirectories, prompt to cd after creating"
     command mkdir -p $argv
 
-    if test $status = 0
+    if test $status = 0; and status is-interactive
         set -l target $argv[-1]
 
         switch $target
