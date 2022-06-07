@@ -109,7 +109,6 @@ brew "trash"
 brew "tree"
 brew "typescript"
 brew "universal-ctags", args: ["HEAD"]
-brew "unrar"
 brew "vcprompt"
 brew "vim"
 brew "watch"
