@@ -1,0 +1,92 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+require "json"
+require "net/http"
+require "time"
+
+def log(*lines)
+  timestamp = Time.now.strftime("%Y-%m-%dT%H:%M:%S")
+  lines.each do |line|
+    warn "#{timestamp} #{line}"
+  end
+end
+
+config_file = File.join(Dir.home, ".config", "sunrise-sunset", "config.json")
+
+unless File.readable?(config_file)
+  log("Configuration file doesn't exist")
+  exit 1
+end
+
+begin
+  config = JSON.parse(File.read(config_file))
+rescue => error
+  log(
+    "Failed to parse configuration file",
+    "Error: #{error.message}",
+    "JSON data:",
+    json
+  )
+  exit 1
+end
+
+uri = URI("https://api.sunrise-sunset.org/json?lat=#{config["latitude"]}&lng=#{config["longitude"]}&formatted=0")
+
+begin
+  response = Net::HTTP.get_response(uri)
+rescue => error
+  log(
+    "Failed to get sunrise/sunset data",
+    "URL: #{uri}",
+    "Error: #{error.message}"
+  )
+  exit 1
+end
+
+unless response.code == "200"
+  log(
+    "Failed to get sunrise/sunset data",
+    "URL: #{uri}",
+    "Response: #{response.code} #{response.message}"
+  )
+  exit 1
+end
+
+begin
+  json = JSON.parse(response.body)
+rescue => error
+  log(
+    "Failed to parse sunrise/sunset data",
+    "Error: #{error.message}",
+    "JSON data:",
+    response.body
+  )
+  exit 1
+end
+
+sunrise = json.dig("results", "sunrise")
+sunset = json.dig("results", "sunset")
+
+if sunrise.nil? || sunset.nil?
+  log(
+    "JSON data is missing required keys",
+    "JSON data:",
+    json.inspect
+  )
+  exit 1
+end
+
+output = {
+  sunrise: Time.parse(sunrise),
+  sunset: Time.parse(sunset)
+}
+
+output_directory = File.join(Dir.home, ".local", "sunrise-sunset")
+output_file = File.join(output_directory, "data.json")
+
+FileUtils.mkdir_p(output_directory)
+
+File.open(output_file, "w") do |f|
+  f.puts(output.to_json)
+end

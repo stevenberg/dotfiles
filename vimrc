@@ -1,5 +1,5 @@
 set autowriteall
-set background=dark
+let background = system('light-or-dark')
 set backupdir=~/.cache/vim,~/,/tmp
 set clipboard=unnamed
 set colorcolumn=100

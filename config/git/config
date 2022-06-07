@@ -38,7 +38,7 @@
     verbose = true
 [core]
     trustctime = false
-    pager = delta --dark --theme base16
+    pager = delta-light-or-dark
 [diff]
     compactionHeuristic = true
     colorMoved = default

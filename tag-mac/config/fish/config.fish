@@ -45,3 +45,11 @@ end
 for path in $HOME/.config/fish/config.d/*.fish
     source $path
 end
+
+function set_terminal_color --on-event fish_prompt
+    if test (light-or-dark) = light
+        base16-default-light
+    else
+        base16-default-dark
+    end
+end

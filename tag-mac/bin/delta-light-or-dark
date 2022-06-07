@@ -1,0 +1,2 @@
+#!/usr/local/bin/bash
+delta "--$(light-or-dark)" --syntax-theme base16-256
