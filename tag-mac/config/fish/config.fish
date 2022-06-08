@@ -1,17 +1,17 @@
 set -x ANSIBLE_ROLES_PATH "$HOME/.ansible/roles"
-set -x BROWSER 'open'
+set -x BROWSER open
 set -x CDPATH . "$HOME/Development/Projects"
-set -x EDITOR 'vim'
+set -x EDITOR vim
 set -x FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
 set -x GOPATH "$HOME/Development/Go"
-set -x GOROOT '/usr/local/opt/go/libexec'
+set -x GOROOT /usr/local/opt/go/libexec
 set -x HOMEBREW_INSTALL_CLEANUP 1
 set -x LC_ALL 'en_US.UTF-8'
 set -x LESS '-F -g -i -R -w -X -z-3'
 set -x LESSOPEN '|lesspipe.sh %s'
 set -x LESS_ADVANCED_PREPROCESSOR 1
 set -x VISUAL $EDITOR
-set -x RUBY_CONFIGURE_OPTS '--with-jemalloc'
+set -x RUBY_CONFIGURE_OPTS --with-jemalloc
 
 umask 022
 
