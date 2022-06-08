@@ -1,3 +1,4 @@
+tap "1password/tap"
 tap "dbcli/tap"
 tap "filippo.io/age", "https://filippo.io/age"
 tap "github/gh"
@@ -134,6 +135,7 @@ mas "StopTheMadness", id: 1376402589
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
 cask "1password"
+cask "1password-cli"
 cask "acorn"
 cask "arq"
 cask "carbon-copy-cloner"
