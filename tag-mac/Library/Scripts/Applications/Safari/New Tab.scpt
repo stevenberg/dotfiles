@@ -10,7 +10,7 @@ tell application "System Events"
         tell menu bar 1
             tell menu bar item "Bookmarks"
                 tell menu "Bookmarks"
-                    click menu item "Show Favorites"
+                    click menu item "Show Start Page"
                 end tell
             end tell
         end tell
