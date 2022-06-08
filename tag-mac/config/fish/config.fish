@@ -30,10 +30,6 @@ set -x PATH \
 
 starship init fish | source
 
-if status --is-interactive
-    source $HOME/.config/iterm2/shell_integration.fish
-end
-
 if type -q rbenv
     source (rbenv init -|psub)
 end
@@ -44,6 +40,10 @@ end
 
 for path in $HOME/.config/fish/config.d/*.fish
     source $path
+end
+
+if test $TERM_PROGRAM = 'iTerm.app'; and status is-interactive
+    source $HOME/.config/iterm2/shell_integration.fish
 end
 
 function set_terminal_color --on-event fish_prompt
