@@ -47,7 +47,7 @@ if test $TERM_PROGRAM = 'iTerm.app'; and status is-interactive
 end
 
 function set_terminal_color --on-event fish_prompt
-    if test (light-or-dark) = light
+    if test (background status) = light
         base16-default-light
     else
         base16-default-dark
