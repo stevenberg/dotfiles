@@ -3,10 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>net.stevenberg.update-sunrise-sunset</string>
+    <string>net.stevenberg.background-update</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/steven/bin/update-sunrise-sunset</string>
+        <string>/Users/steven/bin/background</string>
+        <string>update</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
@@ -16,8 +17,8 @@
         <integer>0</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/steven/Library/Logs/update-sunrise-sunset.log</string>
+    <string>/Users/steven/Library/Logs/background-update.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/steven/Library/Logs/update-sunrise-sunset.log</string>
+    <string>/Users/steven/Library/Logs/background-update.log</string>
 </dict>
 </plist>
