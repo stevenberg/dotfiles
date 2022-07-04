@@ -1,0 +1,96 @@
+# shellcheck shell=bash
+
+shopt -s autocd
+shopt -s checkhash
+shopt -s checkjobs
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s extglob
+shopt -s globstar
+shopt -s histappend
+shopt -s histverify
+shopt -s lithist
+
+HISTCONTROL='ignoreboth'
+HISTSIZE=-1
+
+export EDITOR='vim'
+export LC_ALL='en_US.UTF-8'
+export LESS='-F -g -i -r -w -X -z-3'
+export LESSOPEN='|lesspipe.sh %s'
+export LESS_ADVANCED_PREPROCESSOR=1
+export VISUAL=$EDITOR
+
+if [ -x /opt/homebrew/bin/brew ]; then
+    export HOMEBREW_INSTALL_CLEANUP=1
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+CDPATH=.
+for path in $HOME/Development/Projects $HOME/Development/Excel/Projects; do
+    if [ -d "$path" ]; then
+        CDPATH="$CDPATH:$path"
+    fi
+done
+export CDPATH
+
+for path in $HOME/bin /opt/homebrew/opt/python/libexec $HOME/.composer/vendor/bin; do
+    if [ -d "$path" ]; then
+        PATH=$path:$PATH
+    fi
+done
+
+if [ -d "$HOME"/.cargo ]; then
+    # shellcheck source=/dev/null
+    source "$HOME"/.cargo/env
+fi
+
+if [ -d /opt/homebrew/opt/go/libexec ] && [ -d "$HOME"/Development/Go ]; then
+    export GOPATH="$HOME"/Development/Go
+    export GOROOT=/opt/homebrew/opt/go/libexec
+    PATH=$HOME/Development/Go/bin:$PATH
+fi
+
+if which -s open; then
+    export BROWSER=open
+fi
+
+if which -s fzf; then
+    export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+fi
+
+if which -s rbenv; then
+    export RUBY_CONFIGURE_OPTS='--with-jemalloc'
+    eval "$(rbenv init - bash)"
+fi
+
+if which -s direnv; then
+    eval "$(direnv hook bash)"
+fi
+
+shopt -s nullglob
+for config in "$HOME"/.config/bash/*.bash; do
+    # shellcheck source=/dev/null
+    source "$config"
+done
+shopt -u nullglob
+
+if [[ $- == *i* ]]; then
+    if which -s starship; then
+        eval "$(starship init bash)"
+    fi
+
+    if [ "$TERM_PROGRAM" = 'iTerm.app' ]; then
+        # shellcheck source=/dev/null
+        source "$HOME"/.iterm2_shell_integration.bash
+        eval "$("$HOME"/.config/base16-shell/profile_helper.sh)"
+    fi
+fi
+
+alias grep='grep --color=auto'
+alias hub='git'
+if which -s exa; then
+    alias ls='exa'
+fi
+alias ll='ls -l'
+alias la='ll -a'

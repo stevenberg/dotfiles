@@ -18,18 +18,6 @@
     root = rev-parse --show-toplevel
 [color]
     ui = true
-[color "diff"]
-    meta = yellow
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
 [color "status"]
     added = green
     changed = yellow
@@ -47,10 +35,6 @@
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
-[gitsh]
-    noGreeting = true
-    defaultCommand = status --short --branch && :echo
-    gitCommand = hub
 [help]
     autoCorrect = 10
 [hub]
@@ -65,6 +49,8 @@
 [merge]
     conflictstyle = diff3
     ff = only
+[pull]
+	rebase = false
 [push]
     default = simple
     followTags = true
@@ -81,5 +67,3 @@
     email = steven@stevenberg.net
 [includeIf "gitdir:~/Development/Excel/"]
     path = config.excel
-[pull]
-	rebase = false

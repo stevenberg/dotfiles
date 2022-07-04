@@ -1,0 +1,6 @@
+#!/bin/sh
+if which -s background; then
+    background status
+else
+    echo dark
+fi

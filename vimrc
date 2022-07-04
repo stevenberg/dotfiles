@@ -1,5 +1,4 @@
 set autowriteall
-let background = system('background status')
 set backupdir=~/.cache/vim,~/,/tmp
 set clipboard=unnamed
 set colorcolumn=100
@@ -29,15 +28,16 @@ set termguicolors
 set undodir=~/.cache/vim,~/,/tmp
 set undofile
 
-if filereadable(expand('~/.vimrc_background'))
-    let g:base16colorbase=256
-    source ~/.vimrc_background
+let bg = trim(system('light-or-dark'))
+if bg ==# 'light'
+  set background=light
+else
+  set background=dark
 endif
 
-if has('gui')
-  set guicursor+=n-v-c:blinkon0
-  set guifont=JetBrains\ Mono:h12
-  set guioptions=gm
+if filereadable(expand('~/.vimrc_background'))
+  let g:base16colorbase=256
+  source ~/.vimrc_background
 endif
 
 let g:airline#extensions#ale#enabled = 1
