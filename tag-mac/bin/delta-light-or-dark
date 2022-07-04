@@ -1,2 +1,2 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 delta "--$(background status)" --syntax-theme base16-256
