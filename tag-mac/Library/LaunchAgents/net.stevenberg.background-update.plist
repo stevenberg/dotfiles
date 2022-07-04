@@ -17,8 +17,8 @@
         <integer>0</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/steven/Library/Logs/background-update.log</string>
+    <string>/Users/steven/Library/Logs/background-update.stdout.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/steven/Library/Logs/background-update.log</string>
+    <string>/Users/steven/Library/Logs/background-update.stderr.log</string>
 </dict>
 </plist>
