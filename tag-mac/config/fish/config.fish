@@ -1,10 +1,10 @@
 set -x ANSIBLE_ROLES_PATH "$HOME/.ansible/roles"
 set -x BROWSER open
-set -x CDPATH . "$HOME/Development/Projects"
+set -x CDPATH . "$HOME/Development/Projects" "$HOME/Development/Excel/Projects"
 set -x EDITOR vim
 set -x FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
 set -x GOPATH "$HOME/Development/Go"
-set -x GOROOT /usr/local/opt/go/libexec
+set -x GOROOT /opt/homebrew/opt/go/libexec
 set -x HOMEBREW_INSTALL_CLEANUP 1
 set -x LC_ALL 'en_US.UTF-8'
 set -x LESS '-F -g -i -R -w -X -z-3'
@@ -17,33 +17,30 @@ umask 022
 
 set fish_greeting
 
-set -x PATH \
-    /usr/local/opt/python/libexec/bin \
-    /Applications/MacVim.app/Contents/bin \
-    /Users/steven/Library/Python/3.7/bin \
-    /Users/steven/.cargo/bin \
-    /Users/steven/.composer/vendor/bin \
-    /Users/steven/Development/Go/bin \
-    /Users/steven/.rbenv/bin \
-    /Users/steven/bin \
-    $PATH
+eval (/opt/homebrew/bin/brew shellenv)
 
-starship init fish | source
+fish_add_path -m $HOME/bin
+fish_add_path -m $HOME/.composer/vendor/bin
+fish_add_path -m $HOME/Development/Go/bin
+fish_add_path -m $HOME/.cargo/bin
+fish_add_path -m /opt/homebrew/opt/python/libexec/bin
 
-if type -q rbenv
-    source (rbenv init -|psub)
+if status is-interactive
+    starship init fish | source
+
+    source $HOME/.config/base16-shell/profile_helper.fish
+
+    if test $TERM_PROGRAM = 'iTerm.app'
+        source $HOME/.iterm2_shell_integration.fish
+    end
 end
 
-if type -q direnv
-    source (direnv hook fish|psub)
-end
+rbenv init - fish | source
+
+direnv hook fish | source
 
 for path in $HOME/.config/fish/config.d/*.fish
     source $path
-end
-
-if test $TERM_PROGRAM = 'iTerm.app'; and status is-interactive
-    source $HOME/.config/iterm2/shell_integration.fish
 end
 
 function set_terminal_color --on-event fish_prompt
@@ -53,3 +50,9 @@ function set_terminal_color --on-event fish_prompt
         base16-default-dark
     end
 end
+
+alias grep='grep --color=auto'
+alias hub='git'
+alias ls='exa'
+alias ll='ls -l'
+alias la='ll -a'
