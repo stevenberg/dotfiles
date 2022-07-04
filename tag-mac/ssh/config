@@ -12,10 +12,12 @@ Host *
     IdentitiesOnly yes
 
 Host windows
-HostName localhost
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-StrictHostKeyChecking no
-Port 2224
+HostName 192.168.0.244
+User steve
+
+Host wsl
+HostName 192.168.0.244
+Port 2222
 
 Host web2.stevenberg.net
 ProxyCommand none
