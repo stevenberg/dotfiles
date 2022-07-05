@@ -76,23 +76,31 @@ done
 shopt -u nullglob
 
 if [[ $- == *i* ]]; then
+    BASE16_SHELL_PATH="$HOME"/.config/base16-shell
+    # shellcheck source=/dev/null
+    source "$BASE16_SHELL_PATH"/profile_helper.sh
+
+    function precommand() {
+        if command -v >/dev/null 2>&1 spwd; then
+                echo -ne "\033]0; $(spwd) \007"
+        fi
+        if [ "$(light-or-dark)" = light ]; then
+            _base16 "$BASE16_SHELL_PATH/scripts/base16-default-light.sh" default-light
+        else
+            _base16 "$BASE16_SHELL_PATH/scripts/base16-default-dark.sh" default-dark
+        fi
+    }
+
     if command -v >/dev/null 2>&1 starship; then
         eval "$(starship init bash)"
-
-        if command -v >/dev/null 2>&1 spwd; then
-            function set_win_title() {
-                echo -ne "\033]0; $(spwd) \007"
-            }
-            export starship_precmd_user_func='set_win_title'
-        fi
-
+        export starship_precmd_user_func='precommand'
+    else
+        export PROMPT_COMMAND='precommand'
     fi
 
     if [ "$TERM_PROGRAM" = 'iTerm.app' ]; then
         # shellcheck source=/dev/null
         source "$HOME"/.iterm2_shell_integration.bash
-        # shellcheck source=/dev/null
-        source "$HOME"/.config/base16-shell/profile_helper.sh
     fi
 fi
 
