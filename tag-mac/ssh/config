@@ -1,79 +1,10 @@
 Host *
-    UseKeychain yes
-    AddKeysToAgent yes
     VisualHostKey yes
     StrictHostKeyChecking ask
     ControlMaster auto
     ControlPath ~/.ssh/master-%r@%h:%p
     ControlPersist 60
     HashKnownHosts yes
-    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-    IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
 
-Host windows
-HostName 192.168.0.244
-User steve
-
-Host wsl
-HostName 192.168.0.244
-Port 2222
-
-Host web2.stevenberg.net
-ProxyCommand none
-
-# Host *.stevenberg.net
-# ProxyCommand spipe -t %h:8022 -k ~/.ssh/%h/spiped.key
-
-Host excel-live2
-HostName 10.1.0.140
-
-Host excel-live5
-HostName 10.1.0.153
-
-Host excel-mysql-live
-HostName 10.1.0.30
-
-Host excel-elasticsearch
-HostName 10.1.0.166
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-mysql
-HostName 10.1.0.167
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-mysql-development
-HostName 10.1.0.176
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-owncloud
-Hostname 10.1.0.170
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-internal
-HostName 10.1.0.168
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-production-01
-HostName 10.1.0.169
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-production-02
-HostName 10.1.0.171
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-production-03
-HostName 10.1.0.173
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-production-04
-HostName 10.1.0.174
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-production-05
-HostName 10.1.0.175
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
-
-Host excel-development-01
-HostName 10.1.0.172
-ProxyCommand ssh -W %h:%p steve@192.168.0.244
+Include config.local
