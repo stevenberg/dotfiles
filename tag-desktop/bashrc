@@ -51,20 +51,20 @@ if [ -d /opt/homebrew/opt/go/libexec ] && [ -d "$HOME"/Development/Go ]; then
     PATH=$HOME/Development/Go/bin:$PATH
 fi
 
-if which -s open; then
+if command -v >/dev/null 2>/&1 open; then
     export BROWSER=open
 fi
 
-if which -s fzf; then
+if command -v >/dev/null 2>/&1 fzf; then
     export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 fi
 
-if which -s rbenv; then
+if command -v >/dev/null 2>/&1 rbenv; then
     export RUBY_CONFIGURE_OPTS='--with-jemalloc'
     eval "$(rbenv init - bash)"
 fi
 
-if which -s direnv; then
+if command -v >/dev/null 2>/&1 direnv; then
     eval "$(direnv hook bash)"
 fi
 
@@ -76,10 +76,10 @@ done
 shopt -u nullglob
 
 if [[ $- == *i* ]]; then
-    if which -s starship; then
+    if command -v >/dev/null 2>/&1 starship; then
         eval "$(starship init bash)"
 
-        if which -s spwd; then
+        if command -v >/dev/null 2>/&1 spwd; then
             function set_win_title() {
                 echo -ne "\033]0; $(spwd) \007"
             }
@@ -98,7 +98,7 @@ fi
 
 alias grep='grep --color=auto'
 alias hub='git'
-if which -s exa; then
+if command -v >/dev/null 2>/&1 exa; then
     alias ls='exa'
 fi
 alias ll='ls -l'

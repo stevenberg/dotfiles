@@ -1,5 +1,5 @@
 #!/bin/sh
-if which -s background; then
+if command -v background >/dev/null 2>&1; then
     background status
 else
     echo dark
