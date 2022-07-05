@@ -63,6 +63,14 @@ if status is-interactive
         source $HOME/.config/base16-shell/profile_helper.fish
         source $HOME/.iterm2_shell_integration.fish
     end
+
+    function set_terminal_color --on-event fish_prompt
+        if test (background status) = light
+            base16-default-light
+        else
+            base16-default-dark
+        end
+    end
 end
 
 alias grep='grep --color=auto'
