@@ -21,9 +21,15 @@ export LESSOPEN='|lesspipe.sh %s'
 export LESS_ADVANCED_PREPROCESSOR=1
 export VISUAL=$EDITOR
 
-if [ -x /opt/homebrew/bin/brew ]; then
+if [ "$(uname -s)" = 'Darwin' ]; then
+    HOMEBREW_PREFIX=/opt/homenbrew
+else
+    HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
+fi
+
+if [ -x $HOMEBREW_PREFIX/bin/brew ]; then
     export HOMEBREW_INSTALL_CLEANUP=1
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 fi
 
 CDPATH=.
@@ -34,7 +40,7 @@ for path in $HOME/Development/Projects $HOME/Development/Excel/Projects; do
 done
 export CDPATH
 
-for path in $HOME/bin /opt/homebrew/opt/python/libexec $HOME/.composer/vendor/bin; do
+for path in $HOME/bin $HOMEBREW_PREFIX/opt/python/libexec $HOME/.composer/vendor/bin; do
     if [ -d "$path" ]; then
         PATH=$path:$PATH
     fi
@@ -45,9 +51,9 @@ if [ -d "$HOME"/.cargo ]; then
     source "$HOME"/.cargo/env
 fi
 
-if [ -d /opt/homebrew/opt/go/libexec ] && [ -d "$HOME"/Development/Go ]; then
+if [ -d $HOMEBREW_PREFIX/opt/go/libexec ] && [ -d "$HOME"/Development/Go ]; then
     export GOPATH="$HOME"/Development/Go
-    export GOROOT=/opt/homebrew/opt/go/libexec
+    export GOROOT=$HOMEBREW_PREFIX/opt/go/libexec
     PATH=$HOME/Development/Go/bin:$PATH
 fi
 

@@ -9,9 +9,15 @@ umask 022
 
 set fish_greeting
 
-if test -x /opt/homebrew/bin/brew
+if test (uname -s) = Darwin
+    set HOMEBREW_PREFIX $HOMEBREW_PREFIX
+else
+    set HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
+end
+
+if test -x $HOMEBREW_PREFIX/bin/brew
     set -x HOMEBREW_INSTALL_CLEANUP 1
-    eval (/opt/homebrew/bin/brew shellenv)
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 end
 
 set -x CDPATH .
@@ -21,15 +27,15 @@ for path in $HOME/Development/Projects $HOME/Development/Excel/Projects
     end
 end
 
-for path in $HOME/bin $HOME/.cargo/bin /opt/homebrew/opt/python/libexec $HOME/.composer/vendor/bin
+for path in $HOME/bin $HOME/.cargo/bin $HOMEBREW_PREFIX/opt/python/libexec $HOME/.composer/vendor/bin
     if test -d $path
         fish_add_path $path
     end
 end
 
-if test -d /opt/homebrew/opt/go/libexec; and test -d $HOME/Development/Go
+if test -d $HOMEBREW_PREFIX/opt/go/libexec; and test -d $HOME/Development/Go
     set -x GOPATH $HOME/Development/Go
-    set -x GOROOT /opt/homebrew/opt/go/libexec
+    set -x GOROOT $HOMEBREW_PREFIX/opt/go/libexec
     fish_add_path $HOME/Development/Go/bin
 end
 
