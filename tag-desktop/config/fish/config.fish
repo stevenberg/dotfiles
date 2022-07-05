@@ -9,7 +9,7 @@ umask 022
 set fish_greeting
 
 if test (uname -s) = Darwin
-    set HOMEBREW_PREFIX $HOMEBREW_PREFIX
+    set HOMEBREW_PREFIX /opt/homebrew
 else
     set HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
 end
