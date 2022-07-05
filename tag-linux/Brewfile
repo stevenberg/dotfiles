@@ -1,0 +1,5 @@
+tap "homebrew/bundle"
+brew "git-delta"
+brew "rbenv"
+brew "ruby-build"
+brew "starship"
