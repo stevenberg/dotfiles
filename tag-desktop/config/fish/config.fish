@@ -60,15 +60,18 @@ if status is-interactive
     end
 
     if test $TERM_PROGRAM = 'iTerm.app'
-        source $HOME/.config/base16-shell/profile_helper.fish
+        set BASE16_SHELL_PATH $HOME/.config/base16-shell
+        source $BASE16_SHELL_PATH/profile_helper.fish
         source $HOME/.iterm2_shell_integration.fish
     end
 
     function set_terminal_color --on-event fish_prompt
         if test (background status) = light
             base16-default-light
+            set -x THEME default-light
         else
             base16-default-dark
+            set -x THEME default-dark
         end
     end
 end

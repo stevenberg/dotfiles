@@ -91,7 +91,8 @@ if [[ $- == *i* ]]; then
     if [ "$TERM_PROGRAM" = 'iTerm.app' ]; then
         # shellcheck source=/dev/null
         source "$HOME"/.iterm2_shell_integration.bash
-        eval "$("$HOME"/.config/base16-shell/profile_helper.sh)"
+        # shellcheck source=/dev/null
+        source "$HOME"/.config/base16-shell/profile_helper.sh
     fi
 fi
 

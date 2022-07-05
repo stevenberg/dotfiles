@@ -35,9 +35,13 @@ else
   set background=dark
 endif
 
-if filereadable(expand('~/.vimrc_background'))
-  let g:base16colorbase=256
-  source ~/.vimrc_background
+if exists('$BASE16_THEME')
+  let base16colorspace=256
+  colorscheme base16-$BASE16_THEME
+endif
+if exists('$THEME')
+  let base16colorspace=256
+  colorscheme base16-$THEME
 endif
 
 let g:airline#extensions#ale#enabled = 1
@@ -63,7 +67,7 @@ function! PackInit() abort
   call minpac#add('Raimondi/delimitMate')
   call minpac#add('airblade/vim-gitgutter')
   call minpac#add('ap/vim-css-color')
-  call minpac#add('danielwe/base16-vim', {'type': 'opt'})
+  call minpac#add('base16-project/base16-vim', {'type': 'opt'})
   call minpac#add('editorconfig/editorconfig-vim')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
