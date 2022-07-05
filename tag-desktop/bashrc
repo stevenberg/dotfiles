@@ -17,7 +17,6 @@ HISTSIZE=-1
 export EDITOR='vim'
 export LC_ALL='en_US.UTF-8'
 export LESS='-F -g -i -r -w -X -z-3'
-export LESSOPEN='|lesspipe.sh %s'
 export LESS_ADVANCED_PREPROCESSOR=1
 export VISUAL=$EDITOR
 
@@ -30,6 +29,13 @@ fi
 if [ -x $HOMEBREW_PREFIX/bin/brew ]; then
     export HOMEBREW_INSTALL_CLEANUP=1
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+fi
+
+if command -v lesspipe >/dev/null 2>&1; then
+    eval "$(lesspipe)"
+fi
+if command -v lesspipe.sh >/dev/null 2>&1; then
+    eval "$(lesspipe.sh)"
 fi
 
 CDPATH=.

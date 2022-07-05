@@ -1,7 +1,6 @@
 set -x EDITOR vim
 set -x LC_ALL 'en_US.UTF-8'
 set -x LESS '-F -g -i -R -w -X -z-3'
-set -x LESSOPEN '|lesspipe.sh %s'
 set -x LESS_ADVANCED_PREPROCESSOR 1
 set -x VISUAL $EDITOR
 
@@ -18,6 +17,14 @@ end
 if test -x $HOMEBREW_PREFIX/bin/brew
     set -x HOMEBREW_INSTALL_CLEANUP 1
     eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+end
+
+if type -q lesspipe
+    set -x LESSOPEN '| lesspipe %s'
+    set -x LESSCLOSE 'lesspipe %s %s'
+end
+if type -q lesspipe.sh
+    set -x LESSOPEN '| lesspipe %s'
 end
 
 set -x CDPATH .
