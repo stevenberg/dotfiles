@@ -72,14 +72,15 @@ if status is-interactive
         starship init fish | source
     end
 
-    if test $TERM_PROGRAM = 'iTerm.app'
-        set BASE16_SHELL_PATH $HOME/.config/base16-shell
-        source $BASE16_SHELL_PATH/profile_helper.fish
+    if test "$TERM_PROGRAM" = 'iTerm.app'
         source $HOME/.iterm2_shell_integration.fish
     end
 
+    set BASE16_SHELL_PATH $HOME/.config/base16-shell
+    source $BASE16_SHELL_PATH/profile_helper.fish
+
     function set_terminal_color --on-event fish_prompt
-        if test (background status) = light
+        if test (light-or-dark) = light
             base16-default-light
             set -x THEME default-light
         else
