@@ -79,10 +79,12 @@ if [[ $- == *i* ]]; then
     if which -s starship; then
         eval "$(starship init bash)"
 
-        function set_win_title() {
-            echo -ne "\033]0; $(spwd) \007"
-        }
-        export starship_precmd_user_func='set_win_title'
+        if which -s spwd; then
+            function set_win_title() {
+                echo -ne "\033]0; $(spwd) \007"
+            }
+            export starship_precmd_user_func='set_win_title'
+        fi
 
     fi
 
