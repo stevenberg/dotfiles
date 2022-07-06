@@ -24,7 +24,7 @@ if type -q lesspipe
     set -x LESSCLOSE 'lesspipe %s %s'
 end
 if type -q lesspipe.sh
-    set -x LESSOPEN '| lesspipe %s'
+    set -x LESSOPEN '| lesspipe.sh %s'
 end
 
 set -x CDPATH .
