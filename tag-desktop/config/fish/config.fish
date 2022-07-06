@@ -91,7 +91,6 @@ if status is-interactive
 end
 
 alias grep='grep --color=auto'
-alias hub='git'
 if type -q exa
     alias ls='exa'
 end

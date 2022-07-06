@@ -37,8 +37,6 @@
     smudge = git-media-smudge %f
 [help]
     autoCorrect = 10
-[hub]
-    protocol = https
 [include]
     path = config.local
 [init]

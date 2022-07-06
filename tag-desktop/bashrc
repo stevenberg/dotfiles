@@ -117,7 +117,6 @@ if [[ $- == *i* ]]; then
 fi
 
 alias grep='grep --color=auto'
-alias hub='git'
 if command -v >/dev/null 2>&1 exa; then
     alias ls='exa'
 fi
