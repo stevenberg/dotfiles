@@ -1,6 +1,6 @@
 #!/bin/sh
-if command -v background >/dev/null 2>&1; then
-    background status
-else
+if [ "$(uname -s)" = 'Linux' ] && [ -z "$SSH_TTY" ] || ! command -v background >/dev/null 2>&1; then
     echo dark
+else
+    background status
 fi

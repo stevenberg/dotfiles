@@ -97,9 +97,17 @@ if [[ $- == *i* ]]; then
                 echo -ne "\033]0; $(spwd) \007"
         fi
         if [ "$(light-or-dark)" = light ]; then
-            _base16 "$BASE16_SHELL_PATH/scripts/base16-default-light.sh" default-light
+            if [ -z "$SSH_TTY" ]; then
+                _base16 "$BASE16_SHELL_PATH/scripts/base16-default-light.sh" default-light
+            else
+                _base16 "$BASE16_SHELL_PATH/scripts/base16-solarized-light.sh" solarized-light
+            fi
         else
-            _base16 "$BASE16_SHELL_PATH/scripts/base16-default-dark.sh" default-dark
+            if [ -z "$SSH_TTY" ]; then
+                _base16 "$BASE16_SHELL_PATH/scripts/base16-default-dark.sh" default-dark
+            else
+                _base16 "$BASE16_SHELL_PATH/scripts/base16-solarized-dark.sh" solarized-dark
+            fi
         fi
     }
 

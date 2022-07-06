@@ -1,2 +1,2 @@
 #!/bin/sh
-delta "--$(light-or-dark)" --syntax-theme base16
+delta "--$(light-or-dark)"

@@ -81,11 +81,21 @@ if status is-interactive
 
     function set_terminal_color --on-event fish_prompt
         if test (light-or-dark) = light
-            base16-default-light
-            set -x THEME default-light
+            if test -z "$SSH_TTY"
+                base16-default-light
+                set -x THEME default-light
+            else
+                base16-solarized-light
+                set -x THEME solarized-light
+            end
         else
-            base16-default-dark
-            set -x THEME default-dark
+            if test -z "$SSH_TTY"
+                base16-default-dark
+                set -x THEME default-dark
+            else
+                base16-solarized-dark
+                set -x THEME solarized-dark
+            end
         end
     end
 end
