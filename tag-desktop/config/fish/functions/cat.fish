@@ -6,10 +6,16 @@ function cat -d "Use bat instead of cat, or mdless for Markdown"
         return 0
     end
 
-    if contains (get_extension $argv) $extensions
+    if contains (get_extension $argv) $extensions; and type -q mdless
         mdless $argv
     else
-        command bat --style plain --theme base16 $argv
+        if type -q bat
+            command bat --style plain --theme base16 $argv
+        else if type -q batcat
+            command batcat --style plain --theme base16 $argv
+        else
+            command cat $argv
+        end
     end
 end
 
