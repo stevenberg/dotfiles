@@ -92,3 +92,4 @@ if type -q exa
 end
 alias ll='ls -l'
 alias la='ll -a'
+alias bat='bat --theme base16'
