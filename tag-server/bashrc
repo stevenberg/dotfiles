@@ -1,0 +1,22 @@
+# shellcheck shell=bash
+
+# shellcheck source=/dev/null
+source "$HOME/.config/bash/settings.bash"
+
+export COMPONENTS=(
+    path
+    base16
+    direnv
+    lesspipe
+    rm
+)
+
+export ADD_PATHS=(
+    "$HOME/bin"
+)
+
+# shellcheck source=/dev/null
+source "$HOME/.config/bash/components.bash"
+
+unset COMPONENTS
+unset ADD_PATHS
