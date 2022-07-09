@@ -80,23 +80,9 @@ if status is-interactive
     source $BASE16_SHELL_PATH/profile_helper.fish
 
     function set_terminal_color --on-event fish_prompt
-        if test (light-or-dark) = light
-            if test -z "$SSH_TTY"
-                base16-default-light
-                set -x THEME default-light
-            else
-                base16-solarized-light
-                set -x THEME solarized-light
-            end
-        else
-            if test -z "$SSH_TTY"
-                base16-default-dark
-                set -x THEME default-dark
-            else
-                base16-solarized-dark
-                set -x THEME solarized-dark
-            end
-        end
+        set fn base16-(colorscheme)
+        eval $fn
+        set -x BASE16_THEME $BASE16_THEME
     end
 end
 

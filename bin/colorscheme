@@ -1,0 +1,15 @@
+#!/bin/sh
+background=$(light-or-dark)
+if [ "$background" = 'light' ]; then
+    if [ -z "$SSH_TTY" ]; then
+        echo default-light
+    else
+        echo solarized-light
+    fi
+else
+    if [ -z "$SSH_TTY" ]; then
+        echo default-dark
+    else
+        echo solarized-dark
+    fi
+fi
