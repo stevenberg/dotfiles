@@ -36,14 +36,14 @@ end
 
 for path in $HOME/bin $HOME/.cargo/bin $HOMEBREW_PREFIX/opt/python/libexec $HOME/.composer/vendor/bin
     if test -d $path
-        fish_add_path $path
+        fish_add_path -m $path
     end
 end
 
 if test -d $HOMEBREW_PREFIX/opt/go/libexec; and test -d $HOME/Development/Go
     set -x GOPATH $HOME/Development/Go
     set -x GOROOT $HOMEBREW_PREFIX/opt/go/libexec
-    fish_add_path $HOME/Development/Go/bin
+    fish_add_path -m $HOME/Development/Go/bin
 end
 
 if type -q open
