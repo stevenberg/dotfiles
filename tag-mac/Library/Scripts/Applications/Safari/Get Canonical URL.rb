@@ -1,4 +1,4 @@
-#!/usr/local/opt/ruby/bin/ruby
+#!/opt/homebrew/opt/ruby/bin/ruby
 # frozen_string_literal: true
 
 require "httparty"
@@ -22,6 +22,6 @@ IO.popen(command, "r") do |p|
   TerminalNotifier.notify(
     canonical_url,
     title: "Canonical URL",
-    open: canonical_url,
+    open: canonical_url
   )
 end
