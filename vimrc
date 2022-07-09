@@ -42,53 +42,12 @@ if exists('$BASE16_THEME')
   colorscheme base16-$BASE16_THEME
 endif
 
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#whitespace#enabled = 1
-let g:ale_fix_on_save = 1
-let g:delimitMate_matchpairs = '(:),[:],{:}'
-let g:EasyCLipAutoFormat = 1
-let g:EasyClipShareYanksFile = 1
-let g:EasyClipShareYanksDirectory = '~/.cache/vim'
-let g:EasyClipUseSubstituteDefaults = 1
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-let g:go_fmt_autosave = 0
-let g:ruby_indent_block_style = 'do'
-let g:rubycomplete_load_gemfile = 1
-let g:rubycomplete_rails = 1
-let g:mapleader = "\<space>"
+source ~/.vim/vars.vim
 
 function! PackInit() abort
   packadd minpac
   call minpac#init()
-  call minpac#add('Raimondi/delimitMate')
-  call minpac#add('airblade/vim-gitgutter')
-  call minpac#add('ap/vim-css-color')
-  call minpac#add('base16-project/base16-vim', {'type': 'opt'})
-  call minpac#add('editorconfig/editorconfig-vim')
-  call minpac#add('junegunn/fzf')
-  call minpac#add('junegunn/fzf.vim')
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
-  call minpac#add('mattn/emmet-vim')
-  call minpac#add('sheerun/vim-polyglot')
-  call minpac#add('svermeulen/vim-easyclip')
-  call minpac#add('tpope/vim-capslock')
-  call minpac#add('tpope/vim-commentary')
-  call minpac#add('tpope/vim-endwise')
-  call minpac#add('tpope/vim-obsession')
-  call minpac#add('tpope/vim-ragtag')
-  call minpac#add('tpope/vim-rails')
-  call minpac#add('tpope/vim-repeat')
-  call minpac#add('tpope/vim-rsi')
-  call minpac#add('tpope/vim-sensible')
-  call minpac#add('tpope/vim-surround')
-  call minpac#add('tpope/vim-unimpaired')
-  call minpac#add('tpope/vim-vinegar')
-  call minpac#add('vim-airline/vim-airline')
-  call minpac#add('vim-airline/vim-airline-themes')
-  call minpac#add('vim-language-dept/css-syntax.vim')
-  call minpac#add('dense-analysis/ale')
+  source ~/.vim/packinit.vim
 endfunction
 
 command! SearchCount :%s///gn
