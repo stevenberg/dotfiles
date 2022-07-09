@@ -87,9 +87,11 @@ if status is-interactive
 end
 
 alias grep='grep --color=auto'
+if type -q bat
+    alias bat='bat --theme base16'
+end
 if type -q exa
     alias ls='exa'
 end
 alias ll='ls -l'
 alias la='ll -a'
-alias bat='bat --theme base16'
