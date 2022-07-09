@@ -10,6 +10,7 @@ let g:EasyClipShareYanksDirectory = '~/.cache/vim'
 let g:EasyClipUseSubstituteDefaults = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:go_fmt_autosave = 0
+let g:fzf_preview_window = []
 let g:ruby_indent_block_style = 'do'
 let g:rubycomplete_load_gemfile = 1
 let g:rubycomplete_rails = 1
