@@ -32,3 +32,7 @@ export ADD_CDPATHS=(
 
 # shellcheck source=/dev/null
 source "$HOME/.config/bash/components.bash"
+
+unset COMPONENTS
+unset ADD_PATHS
+unset ADD_CDPATHS
