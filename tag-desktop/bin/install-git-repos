@@ -14,8 +14,8 @@ remotes = config["remotes"]
 
 repositories.each do |base_repository|
   fork_repository = Pathname("#{base_repository}-#{fork_postfix}")
-  base_url = URI.join(url_prefix, "#{base_repository}.git")
-  fork_url = URI.join(url_prefix, "#{fork_repository}.git")
+  base_url = "#{url_prefix}/#{base_repository}.git"
+  fork_url = "#{url_prefix}/#{fork_repository}.git"
 
   unless base_repository.exist?
     Git.clone(base_url, base_repository)
@@ -30,7 +30,7 @@ repositories.each do |base_repository|
     g.fetch(g.remote("upstream"))
 
     remotes.each do |name|
-      remote_url = URI.join(url_prefix, "#{base_repository}-#{name}.git")
+      remote_url = "#{url_prefix}#{base_repository}-#{name}.git"
 
       g.add_remote(name, remote_url)
       g.fetch(g.remote(name))
