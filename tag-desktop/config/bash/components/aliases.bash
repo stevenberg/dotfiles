@@ -5,5 +5,5 @@ fi
 if command -v >/dev/null 2>&1 exa; then
     alias ls='exa'
 fi
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ll -a'

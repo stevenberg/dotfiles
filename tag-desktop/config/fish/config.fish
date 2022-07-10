@@ -93,5 +93,5 @@ end
 if type -q exa
     alias ls='exa'
 end
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ll -a'
