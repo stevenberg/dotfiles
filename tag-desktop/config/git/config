@@ -1,21 +1,21 @@
 [alias]
-    st = status -sb
-    branches = branch -a -vv
-    tags = tag
-    stashes = stash list
-    remotes = remote -v
-    unstage = reset -q HEAD --
-    discard = checkout --
-    uncommit = reset --mixed HEAD~
     amend = commit --amend
-    nevermind = !git reset --hard HEAD && git clean -d -f
-    ctags = !.git/hooks/ctags
-    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    prune = fetch --prune
-    stash-all = stash save --include-untracked
     author = commit --amend --no-edit --author
+    branches = branch -a -vv
+    ctags = !.git/hooks/ctags
+    discard = checkout --
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    nevermind = !git reset --hard HEAD && git clean -d -f
+    prune = fetch --prune
+    remotes = remote -v
     reset-author = commit --amend --reset-author --no-edit
     root = rev-parse --show-toplevel
+    st = status -sb
+    stash-all = stash save --include-untracked
+    stashes = stash list
+    tags = tag
+    uncommit = reset --mixed HEAD~
+    unstage = reset -q HEAD --
 [color]
     ui = true
 [color "status"]
@@ -25,11 +25,12 @@
 [commit]
     verbose = true
 [core]
-    trustctime = false
+    fsmonitor = true
     pager = delta-light-or-dark
+    trustctime = false
 [diff]
-    compactionHeuristic = true
     colorMoved = default
+    compactionHeuristic = true
 [diff "exif"]
     textconv = exiftool
 [filter "media"]
@@ -37,8 +38,6 @@
     smudge = git-media-smudge %f
 [help]
     autoCorrect = 10
-[include]
-    path = config.local
 [init]
     defaultBranch = main
     templateDir = ~/.config/git/template
@@ -61,7 +60,9 @@
 [transfer]
     fsckobjects = true
 [user]
-    name = Steven Berg
     email = steven@stevenberg.net
+    name = Steven Berg
 [includeIf "gitdir:~/Development/Excel/"]
     path = config.excel
+[include]
+    path = config.local
