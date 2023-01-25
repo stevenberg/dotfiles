@@ -54,9 +54,8 @@ if type -q fzf
     set -x FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
 end
 
-if type -q rbenv
-    set -x RUBY_CONFIGURE_OPTS --with-jemalloc
-    rbenv init - fish | source
+if type -q asdf
+    source /opt/homebrew/opt/asdf/libexec/asdf.fish
 end
 
 if type -q direnv

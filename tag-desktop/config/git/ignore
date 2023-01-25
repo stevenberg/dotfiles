@@ -18,6 +18,7 @@
 .phpunit.result.cache
 .rbenv-gemsets
 .tags
+.tool-versions
 .vagrant
 .vscode
 Icon
