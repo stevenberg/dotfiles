@@ -1,0 +1,7 @@
+#!/opt/homebrew/bin/fish
+if test (wifi-ssid) = 'Mother Base'
+    set destination windows
+else
+    set destination windows-external
+end
+ssh -W $argv[1]:$argv[2] $destination
