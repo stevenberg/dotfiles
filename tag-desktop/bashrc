@@ -26,8 +26,8 @@ export ADD_PATHS=(
 )
 
 export ADD_CDPATHS=(
-    "$HOME/Development/Projects"
-    "$HOME/Development/Excel/Projects"
+    "$HOME/Developer/Projects"
+    "$HOME/Developer/Excel/Projects"
 )
 
 # shellcheck source=/dev/null

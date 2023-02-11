@@ -1,5 +1,5 @@
-if [ -d "$HOMEBREW_PREFIX"/opt/go/libexec ] && [ -d "$HOME"/Development/Go ]; then
-    export GOPATH="$HOME"/Development/Go
+if [ -d "$HOMEBREW_PREFIX"/opt/go/libexec ] && [ -d "$HOME"/Developer/Go ]; then
+    export GOPATH="$HOME"/Developer/Go
     export GOROOT=$HOMEBREW_PREFIX/opt/go/libexec
-    PATH=$HOME/Development/Go/bin:$PATH
+    PATH=$HOME/Developer/Go/bin:$PATH
 fi

@@ -28,7 +28,7 @@ if type -q lesspipe.sh
 end
 
 set -x CDPATH .
-for path in $HOME/Development/Projects $HOME/Development/Excel/Projects
+for path in $HOME/Developer/Projects $HOME/Developer/Excel/Projects
     if test -d $path
         set -x CDPATH $CDPATH $path
     end
@@ -40,10 +40,10 @@ for path in $HOME/bin $HOME/.cargo/bin $HOMEBREW_PREFIX/opt/python/libexec $HOME
     end
 end
 
-if test -d $HOMEBREW_PREFIX/opt/go/libexec; and test -d $HOME/Development/Go
-    set -x GOPATH $HOME/Development/Go
+if test -d $HOMEBREW_PREFIX/opt/go/libexec; and test -d $HOME/Developer/Go
+    set -x GOPATH $HOME/Developer/Go
     set -x GOROOT $HOMEBREW_PREFIX/opt/go/libexec
-    fish_add_path -m $HOME/Development/Go/bin
+    fish_add_path -m $HOME/Developer/Go/bin
 end
 
 if type -q open

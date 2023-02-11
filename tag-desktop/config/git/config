@@ -62,7 +62,7 @@
 [user]
     email = steven@stevenberg.net
     name = Steven Berg
-[includeIf "gitdir:~/Development/Excel/"]
+[includeIf "gitdir:~/Developer/Excel/"]
     path = config.excel
 [include]
     path = config.local
