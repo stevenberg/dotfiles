@@ -30,7 +30,7 @@ repositories.each do |base_repository|
     g.fetch(g.remote("upstream"))
 
     remotes.each do |name|
-      remote_url = "#{url_prefix}#{base_repository}-#{name}.git"
+      remote_url = "#{url_prefix}/#{base_repository}-#{name}.git"
 
       g.add_remote(name, remote_url)
       g.fetch(g.remote(name))
