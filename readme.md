@@ -72,25 +72,29 @@ brew bundle --global
 ```
 rcup -t desktop -t linux -t excel
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo add-apt-repository ppa:ansible/ansible
 sudo add-apt-repository ppa:fish-shell/release-3
 sudo add-apt-repository ppa:git-core/ppa
-sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install \
-    ansible \
-    bat \
+    bison \
     build-essential \
-    direnv \
     fish \
-    fzf \
     git \
+    libcurl4-openssl-dev \
+    libgd-dev \
     libjemalloc-dev \
-    nodejs \
-    php8.1-cli \
+    libonig-dev \
+    libpq-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libxml2-dev \
+    libzip-dev \
+    plocate \
     rcm \
-    vim-nox
+    re2c \
+    vim-nox \
+    zlib1g-dev
 sudo corepack enable
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 brew bundle --global
