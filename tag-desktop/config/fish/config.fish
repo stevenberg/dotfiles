@@ -55,7 +55,7 @@ if type -q fzf
 end
 
 if type -q asdf
-    source /opt/homebrew/opt/asdf/libexec/asdf.fish
+    source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.fish
 end
 
 if type -q direnv
