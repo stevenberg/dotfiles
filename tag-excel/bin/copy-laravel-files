@@ -2,16 +2,17 @@
 
 cp ../laravel_starter/.babelrc .
 cp ../laravel_starter/.editorconfig .
+cp ../laravel_starter/.env.dusk.local.example .
+cp ../laravel_starter/.env.example .
 cp ../laravel_starter/.eslintrc.json .
+cp ../laravel_starter/.gitattributes .
 cp ../laravel_starter/.gitignore .
 cp ../laravel_starter/.ignore .
 cp ../laravel_starter/.php-cs-fixer.dist.php .
 cp ../laravel_starter/.prettierignore .
 cp ../laravel_starter/.prettierrc.json .
-cp ../laravel_starter/.projections.json .
 cp ../laravel_starter/.stylelintrc.json .
 cp ../laravel_starter/.yamllint.yml .
-cp ../laravel_starter/.yarnrc.yml .
 cp ../laravel_starter/app/Console/Kernel.php app/Console/
 cp ../laravel_starter/app/Exceptions/Handler.php app/Exceptions/
 cp ../laravel_starter/app/Http/Kernel.php app/Http/
@@ -20,13 +21,12 @@ cp ../laravel_starter/app/Providers/*.php app/Providers/
 cp ../laravel_starter/artisan .
 cp ../laravel_starter/bootstrap/app.php bootstrap/
 cp ../laravel_starter/config/*.php config/
+cp ../laravel_starter/docker-compose.yml.example .
+cp ../laravel_starter/lang/en/* lang/en/
+cp ../laravel_starter/phpstan.neon.dist .
 cp ../laravel_starter/phpunit.dusk.xml .
 cp ../laravel_starter/phpunit.xml .
 cp ../laravel_starter/public/index.php public/
-cp ../laravel_starter/lang/en/* lang/en/
 cp ../laravel_starter/server.php .
 cp ../laravel_starter/tests/*.php tests/
-cp ../laravel_starter/webpack.mix.js .
-
-rm -rf .yarn
-cp -r ../laravel_starter/.yarn .
+cp ../laravel_starter/vite.config.js .
