@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+echo "${bold}* Updating Yarn${normal}"
+echo
+git feature update
+yarn set version stable
+
+if ! git diff --quiet; then
+    echo
+    echo "${bold}* Committing changes${normal}"
+    echo
+    git add .yarn .yarnrc.yml package.json
+    git commit -m 'Update Yarn'
+
+else
+    echo
+    echo "${bold}* No changes${normal}"
+fi
+
+echo
+echo "${bold}* Updating Yarn packages${normal}"
+echo
+yarn up '*'
+yarn up '@*/*'
+
+if ! git diff --quiet; then
+    echo
+    echo "${bold}* Committing changes${normal}"
+    echo
+    git add package.json yarn.lock
+    git commit -m 'Update Yarn packages'
+else
+    echo
+    echo "${bold}* No changes${normal}"
+fi
+
+echo
+read -rsp $"${bold}* Update composer.json, then press any key to continue${normal}" -n1
+echo
+echo "${bold}* Updating Composer packages${normal}"
+echo
+composer update --ignore-platform-reqs
+
+if ! git diff --quiet; then
+    echo
+    echo "${bold}* Committing changes${normal}"
+    echo
+    git add composer.json composer.lock
+    git commit -m 'Update Composer packages'
+else
+    echo
+    echo "${bold}* No changes${normal}"
+fi
+
+echo
+echo -n 'Compiling frontend assets... '
+yarn build
+
+if ! git diff --quiet; then
+    echo
+    echo "${bold}* Committing changes${normal}"
+    echo
+    git add public
+    git commit -m 'Update frontend assets'
+else
+    echo
+    echo "${bold}* No changes${normal}"
+fi
+
+if [[ $(basename "$(pwd)") != laravel_starter* ]]; then
+    echo
+    echo "${bold}* Copying changes from laravel_starter${normal}"
+    echo
+    copy-laravel-files
+fi
