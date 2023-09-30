@@ -89,8 +89,8 @@ alias grep='grep --color=auto'
 if type -q bat
     alias bat='bat --theme base16'
 end
-if type -q exa
-    alias ls='exa'
+if type -q eza
+    alias ls='eza'
 end
 alias ll='ls -lh'
 alias la='ll -a'
