@@ -11,6 +11,10 @@ if (is_file(getcwd() . '/.user.ini')) {
     }
 }
 
+if (is_file(getcwd() . '/.env')) {
+    Dotenv\Dotenv::createImmutable(getcwd(), '.env')->load();
+}
+
 return [
     'eraseDuplicates' => true,
     'useBracketedPaste' => true,
