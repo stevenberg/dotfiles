@@ -4,4 +4,4 @@ repository = File.basename(Dir.pwd)
 branch = `git branch`.split("\n").find { |l| l =~ /\*/ }.split(" ")[1]
 url = "https://bitbucket.org/slyfoxcreative/#{repository}/pull-requests/new?source=#{branch}&t=1"
 
-system("open", "-g", "-b", "org.mozilla.firefoxdeveloperedition", url)
+system("open", "-g", "-b", "com.apple.Safari", url)
