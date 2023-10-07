@@ -1,1 +1,1 @@
-complete -c deploy -x -a "(ls ./sites/)"
+complete -c deploy -x -a "(command ls ./sites/)"
