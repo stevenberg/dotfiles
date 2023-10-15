@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "git"
+require "pathname"
+require "uri"
+require "yaml"
+
+config = YAML.load_file("./git-repos.yml")
+url_prefix = config["url_prefix"]
+fork_postfix = config["fork_postfix"]
+repositories = config["repositories"].map(&method(:Pathname))
+remotes = config["remotes"]
+
+repositories.each do |base_repository|
+  fork_repository = Pathname("#{base_repository}-#{fork_postfix}")
+  base_url = "#{url_prefix}/#{base_repository}.git"
+  fork_url = "#{url_prefix}/#{fork_repository}.git"
+
+  Git.open(base_repository).tap do |g|
+    g.set_remote_url("origin", base_url)
+  end
+
+  Git.open(fork_repository).tap do |g|
+    g.set_remote_url("origin", fork_url)
+    g.set_remote_url("upstream", base_url)
+
+    remotes.each do |name|
+      remote_url = "#{url_prefix}/#{base_repository}-#{name}.git"
+      g.set_remote_url(name, remote_url)
+    end
+  end
+end
