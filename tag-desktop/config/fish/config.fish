@@ -62,10 +62,6 @@ if type -q direnv
     direnv hook fish | source
 end
 
-for path in $HOME/.config/fish/config.d/*.fish
-    source $path
-end
-
 if status is-interactive
     if type -q starship
         starship init fish | source
