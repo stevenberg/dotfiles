@@ -15,7 +15,6 @@ else
 end
 
 if test -x $HOMEBREW_PREFIX/bin/brew
-    set -x HOMEBREW_INSTALL_CLEANUP 1
     eval ($HOMEBREW_PREFIX/bin/brew shellenv)
 end
 

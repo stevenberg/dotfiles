@@ -5,6 +5,5 @@ else
 fi
 
 if [ -x $HOMEBREW_PREFIX/bin/brew ]; then
-    export HOMEBREW_INSTALL_CLEANUP=1
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 fi
