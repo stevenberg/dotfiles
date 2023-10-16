@@ -61,6 +61,10 @@ if type -q direnv
     direnv hook fish | source
 end
 
+if test -e $HOME/.config/op/plugins.sh
+    source $HOME/.config/op/plugins.sh
+end
+
 if status is-interactive
     if type -q starship
         starship init fish | source
