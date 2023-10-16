@@ -1,0 +1,6 @@
+#!/bin/sh
+while read -r localname _ _ _; do
+    if [ "$localname" != 'refs/heads/master' ]; then
+        phpstan --memory-limit=256M analyse
+    fi
+done
