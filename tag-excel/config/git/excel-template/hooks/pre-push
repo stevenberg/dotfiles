@@ -1,0 +1,10 @@
+#!/bin/sh
+if ! command -v phpstan >/dev/null 2>&1; then
+    exit
+fi
+while read -r localname _ _ _; do
+    if [ "$localname" = 'refs/heads/master' ] || [ "$localname" = '(delete)' ]; then
+        continue
+    fi
+    phpstan --memory-limit=256M analyse
+done

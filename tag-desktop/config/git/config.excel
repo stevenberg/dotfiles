@@ -1,2 +1,5 @@
+[init]
+    defaultBranch = master
+    templateDir = ~/.config/git/excel-template
 [user]
     email = sberg@excel-equipment.com
