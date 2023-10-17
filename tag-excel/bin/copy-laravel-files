@@ -18,6 +18,9 @@ cp ../laravel_starter/app/Exceptions/Handler.php app/Exceptions/
 cp ../laravel_starter/app/Http/Kernel.php app/Http/
 cp ../laravel_starter/app/Http/Middleware/*.php app/Http/Middleware/
 cp ../laravel_starter/app/Providers/*.php app/Providers/
+if [ -d app/Ldap/Rules ]; then
+    cp ../laravel_starter/app/Ldap/Rules/*.php app/Ldap/Rules/
+fi
 cp ../laravel_starter/artisan .
 cp ../laravel_starter/bootstrap/app.php bootstrap/
 cp ../laravel_starter/config/*.php config/
