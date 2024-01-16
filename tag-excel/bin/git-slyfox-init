@@ -49,7 +49,7 @@ name = File.basename(Dir.getwd)
 forks = ["iosos", "steven"].map { |f| "#{name}-#{f}" }
 project_key = ARGV.first
 origin_url = if ARGV.last == "--ssh"
-  "git@bitbucket.org:example-username/#{name}.git"
+  "git@bitbucket.org:slyfoxcreative/#{name}.git"
 else
   "https://bitbucket.org/slyfoxcreative/#{name}.git"
 end
