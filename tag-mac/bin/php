@@ -1,7 +1,0 @@
-#!/opt/homebrew/bin/fish
-if set -q PHP_VERSION
-    and test -n "$PHP_VERSION" -a -x /opt/homebrew/opt/php@"$PHP_VERSION"/bin/php
-    /opt/homebrew/opt/php@"$PHP_VERSION"/bin/php $argv
-else
-    /opt/homebrew/bin/php $argv
-end
