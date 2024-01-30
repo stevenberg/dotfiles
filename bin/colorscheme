@@ -1,7 +1,7 @@
 #!/bin/sh
 background=$(light-or-dark)
 if [ "$background" = 'light' ]; then
-    echo selenized-light
+    echo classic-light
 else
-    echo selenized-dark
+    echo classic-dark
 fi
