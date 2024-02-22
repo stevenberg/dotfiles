@@ -70,6 +70,10 @@ if status is-interactive
         starship init fish | source
     end
 
+    if type -q ngrok
+        ngrok completion | source
+    end
+
     if test "$TERM_PROGRAM" = 'iTerm.app'
         source $HOME/.iterm2_shell_integration.fish
     end
