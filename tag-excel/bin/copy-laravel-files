@@ -8,7 +8,6 @@ cp ../laravel_starter/.eslintrc.json .
 cp ../laravel_starter/.gitattributes .
 cp ../laravel_starter/.gitignore .
 cp ../laravel_starter/.ignore .
-cp ../laravel_starter/.php-cs-fixer.dist.php .
 cp ../laravel_starter/.prettierignore .
 cp ../laravel_starter/.prettierrc.json .
 cp ../laravel_starter/.stylelintrc.json .
@@ -25,10 +24,12 @@ cp ../laravel_starter/artisan .
 cp ../laravel_starter/bootstrap/app.php bootstrap/
 cp ../laravel_starter/config/*.php config/
 cp ../laravel_starter/docker-compose.yml.example .
+cp -r ../laravel_starter/docker/* docker/
 cp ../laravel_starter/lang/en/* lang/en/
 cp ../laravel_starter/phpstan.neon.dist .
 cp ../laravel_starter/phpunit.dusk.xml .
 cp ../laravel_starter/phpunit.xml .
+cp ../laravel_starter/pint.json .
 cp ../laravel_starter/public/index.php public/
 cp ../laravel_starter/server.php .
 cp ../laravel_starter/tests/*.php tests/

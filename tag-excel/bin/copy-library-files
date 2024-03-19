@@ -2,13 +2,11 @@
 
 cp ../library_starter/.editorconfig .
 cp ../library_starter/.gitignore .
-cp ../library_starter/.php-cs-fixer.dist.php .
 cp ../library_starter/.prettierrc.json .
 cp ../library_starter/package.json .
 cp ../library_starter/yarn.lock .
 cp ../library_starter/phpunit.xml .
 cp ../library_starter/.yarnrc.yml .
 cp ../library_starter/.gitattributes .
-mkdir -p .yarn/releases
-cp ../library_starter/.yarn/releases/yarn-berry.cjs .yarn/releases
-cp ../library_starter/tests/bootstrap.php tests/
+cp ../library_starter/pint.json .
+cp ../library_starter/tests/PhpUnitExtension.php tests/
