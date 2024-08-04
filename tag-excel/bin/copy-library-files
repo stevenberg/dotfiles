@@ -9,4 +9,3 @@ cp ../library_starter/phpunit.xml .
 cp ../library_starter/.yarnrc.yml .
 cp ../library_starter/.gitattributes .
 cp ../library_starter/pint.json .
-cp ../library_starter/tests/PhpUnitExtension.php tests/
