@@ -1,0 +1,58 @@
+#!/usr/bin/env fish
+
+function header --argument-names title
+    set -l count (math (tput cols) - (string length $title) - 3)
+    set_color --bold
+    echo
+    echo -n "* $title "
+    printf %"$count"s | tr ' ' '*'
+    echo
+    set_color normal
+end
+
+header 'Creating update branch'
+header 'git fetch upstream'
+git fetch upstream
+header 'git switch --create update upstream/master'
+git switch --create update upstream/master
+
+header 'Updating Composer packages'
+header 'sail composer update'
+sail composer update
+header 'sail composer bump'
+sail composer bump
+if not git diff --quiet --exit-code composer.json
+    header 'git add composer.json composer.lock'
+    git add composer.json composer.lock
+    header "git commit --message='Update Composer packages'"
+    git commit --message='Update Composer packages'
+end
+if not git diff --quiet --exit-code public/vendor
+    header 'git add public/vendor'
+    git add public/vendor
+    header "git commit --message='Update frontend vendor files'"
+    git commit --message='Update frontend vendor files'
+end
+
+header 'Updating Yarn packages'
+header 'sail yarn set version stable'
+sail yarn set version stable
+header 'sail shell -c 'corepack install
+sail shell -c 'corepack install'
+header "sail yarn up '*'"
+sail yarn up '*'
+header "sail yarn up '@*/*'"
+sail yarn up '@*/*'
+if not git diff --quiet --exit-code package.json
+    header 'git add package.json yarn.lock'
+    git add package.json yarn.lock
+    header "git commit --message='Update Yarn packages'"
+    git commit --message='Update Yarn packages'
+end
+
+if string match --quiet 'laravel_starter*' (basename (realpath .))
+    header 'Copy changes from https://github.com/laravel/laravel'
+else
+    header 'Copying files from laravel_starter'
+    copy-laravel-files
+end

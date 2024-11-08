@@ -3,6 +3,10 @@ if ! command -v phpstan >/dev/null 2>&1; then
     exit
 fi
 while read -r localname _ _ _; do
+    # Don't run PHPStan when pushing a tag
+    case $localname in refs/tags*)
+        continue
+    esac
     if [ "$localname" = 'refs/heads/master' ] || [ "$localname" = '(delete)' ]; then
         continue
     fi

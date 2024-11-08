@@ -1,6 +1,10 @@
-set -l types custom laravel magento magento-sub-store redirect satis wordpress
+set -l types custom laravel laravel-alias magento magento-sub-store redirect satis
 
 set -l hosts (inventory-group web)
+
+set -l laravel_domains (rg '(type: laravel$|"type": "laravel")' sites/*/vars.{yml,json} |
+    xargs dirname |
+    xargs basename)
 
 set -l magento_domains (rg '(type: magento$|"type": "magento")' sites/*/vars.{yml,json} |
     xargs dirname |
@@ -32,6 +36,9 @@ complete -c add-site -n "__fish_seen_subcommand_from laravel" \
 
 complete -c add-site -n "__fish_seen_subcommand_from laravel" \
     -s b -l laravel-broadcast
+
+complete -c add-site -n "__fish_seen_subcommand_from laravel-alias" \
+    -s b -l laravel-base-domain -x -a "$laravel_domains"
 
 complete -c add-site -n "__fish_seen_subcommand_from magento" \
     -s g -l magento-paid-google-cards

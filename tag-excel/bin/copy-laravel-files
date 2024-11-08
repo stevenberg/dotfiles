@@ -4,7 +4,10 @@ cp ../laravel_starter/.babelrc .
 cp ../laravel_starter/.editorconfig .
 cp ../laravel_starter/.env.dusk.local.example .
 cp ../laravel_starter/.env.example .
-cp ../laravel_starter/.eslintrc.json .
+if [ -f ./.eslintrc.json ]; then
+    rm ./.eslintrc.json
+fi
+cp ../laravel_starter/eslint.config.mjs .
 cp ../laravel_starter/.gitattributes .
 cp ../laravel_starter/.gitignore .
 cp ../laravel_starter/.ignore .
@@ -12,16 +15,16 @@ cp ../laravel_starter/.prettierignore .
 cp ../laravel_starter/.prettierrc.json .
 cp ../laravel_starter/.stylelintrc.json .
 cp ../laravel_starter/.yamllint.yml .
-cp ../laravel_starter/app/Console/Kernel.php app/Console/
-cp ../laravel_starter/app/Exceptions/Handler.php app/Exceptions/
-cp ../laravel_starter/app/Http/Kernel.php app/Http/
+# cp ../laravel_starter/app/Console/Kernel.php app/Console/
+# cp ../laravel_starter/app/Exceptions/Handler.php app/Exceptions/
+# cp ../laravel_starter/app/Http/Kernel.php app/Http/
 cp ../laravel_starter/app/Http/Middleware/*.php app/Http/Middleware/
 cp ../laravel_starter/app/Providers/*.php app/Providers/
-if [ -d app/Ldap/Rules ]; then
+if [ -d ./app/Ldap/Rules ]; then
     cp ../laravel_starter/app/Ldap/Rules/*.php app/Ldap/Rules/
 fi
 cp ../laravel_starter/artisan .
-cp ../laravel_starter/bootstrap/app.php bootstrap/
+cp ../laravel_starter/bootstrap/*.php bootstrap/
 cp ../laravel_starter/config/*.php config/
 cp ../laravel_starter/docker-compose.yml.example .
 cp -r ../laravel_starter/docker/* docker/
@@ -33,4 +36,7 @@ cp ../laravel_starter/pint.json .
 cp ../laravel_starter/public/index.php public/
 cp ../laravel_starter/server.php .
 cp ../laravel_starter/tests/*.php tests/
+if [ -f ./tests/CreatesApplication.php ]; then
+    rm ./tests/CreatesApplication.php
+fi
 cp ../laravel_starter/vite.config.js .
