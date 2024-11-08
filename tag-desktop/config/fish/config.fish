@@ -55,6 +55,11 @@ end
 
 if type -q asdf
     source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.fish
+    set -l php_version (asdf current php | cut -w -f 2)
+    set -l composer_bin_path $HOME/.asdf/installs/php/$php_version/.composer/vendor/bin
+    if test -d $composer_bin_path
+        fish_add_path $composer_bin_path
+    end
 end
 
 if type -q direnv
@@ -72,6 +77,10 @@ if status is-interactive
 
     if type -q ngrok
         ngrok completion | source
+    end
+
+    if type -q laravel
+        laravel completion | source
     end
 
     if test "$TERM_PROGRAM" = 'iTerm.app'
