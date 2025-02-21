@@ -55,7 +55,7 @@ end
 
 if type -q asdf
     set -gx --prepend PATH $HOME/.asdf/shims
-    set -l php_version (asdf current php | tail -1 | cut -w -f 2)
+    set -l php_version (asdf current php | tail -1 | tr -s ' ' | cut -d ' ' -f 2)
     set -l composer_bin_path $HOME/.asdf/installs/php/$php_version/.composer/vendor/bin
     if test -d $composer_bin_path
         fish_add_path $composer_bin_path
