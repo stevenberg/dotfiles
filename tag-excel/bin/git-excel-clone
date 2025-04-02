@@ -3,6 +3,6 @@ base=git@github.com:slyfoxcreative/$1.git
 fork=git@github.com:sberg-excel/$1.git
 git clone "$fork"
 cd "$1" || exit
-git init
+git init --template ~/.config/git/excel-template
 git remote add upstream "$base"
 git fetch upstream
