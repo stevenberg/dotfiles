@@ -1,10 +1,8 @@
 #!/bin/sh
 base=git@github.com:slyfoxcreative/$1.git
 fork=git@github.com:sberg-excel/$1.git
-git clone "$fork" || exit
+git clone "$fork"
 cd "$1" || exit
-git config remote.pushdefault origin || exit
-git config push.default current || exit
-git remote add upstream "$base" || exit
-git fetch upstream || exit
-cp ~/.config/git/excel-template/hooks/* ./.git/hooks/
+git init
+git remote add upstream "$base"
+git fetch upstream
