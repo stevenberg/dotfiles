@@ -6,6 +6,7 @@
 .Spotlight-V100
 .Trashes
 ._*
+.ansible
 .env
 .env.local
 .envrc
