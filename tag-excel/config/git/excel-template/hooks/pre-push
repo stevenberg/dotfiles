@@ -7,7 +7,7 @@ while read -r localname _ _ _; do
     case $localname in refs/tags*)
         continue
     esac
-    if [ "$localname" = 'refs/heads/master' ] || [ "$localname" = '(delete)' ]; then
+    if [ "$localname" = 'refs/heads/main' ] || [ "$localname" = '(delete)' ]; then
         continue
     fi
     phpstan --memory-limit=256M analyse
