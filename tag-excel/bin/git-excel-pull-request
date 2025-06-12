@@ -2,6 +2,6 @@
 
 repository = File.basename(Dir.pwd)
 branch = `git branch`.split("\n").find { |l| l =~ /\*/ }.split(" ")[1]
-url = "https://bitbucket.org/slyfoxcreative/#{repository}/pull-requests/new?source=#{branch}&t=1"
+url = "https://github.com/sberg-excel/#{repository}/pull/new/#{branch}"
 
 system("open", "-g", "-b", "org.mozilla.firefox", url)

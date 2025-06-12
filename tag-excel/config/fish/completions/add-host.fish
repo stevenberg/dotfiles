@@ -9,6 +9,7 @@ complete -c update-host -l cifs-source -x
 complete -c update-host -l cifs-path -x
 complete -c update-host -l cifs-username -x
 complete -c update-host -l cifs-password -x
-complete -c add-host -s p -l php-versions -x -a '8.1 8.2 8.3 8.4'
-complete -c add-host -s c -l catchall-domain -x
-complete -c add-host -s q -l sql-server
+complete -c add-host -s p -l php-versions -x -a '7.4 8.1 8.2 8.3 8.4'
+complete -c add-host -l catchall-domain -x
+complete -c add-host -l sql-server
+complete -c add-host -s q -l laravel
