@@ -1,0 +1,2 @@
+#!/bin/sh
+open -g -b org.mozilla.firefox $1
