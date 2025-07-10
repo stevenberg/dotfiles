@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-
-repository = File.basename(Dir.pwd)
-branch = `git branch`.split("\n").find { |l| l =~ /\*/ }.split(" ")[1]
-url = "https://github.com/sberg-excel/#{repository}/pull/new/#{branch}"
-
-system("open", "-g", "-b", "org.mozilla.firefox", url)

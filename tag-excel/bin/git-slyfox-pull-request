@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+username = ENV["GITHUB_SLYFOX_USERNAME"]
+repository = File.basename(Dir.pwd)
+branch = `git branch`.split("\n").find { |l| l =~ /\*/ }.split(" ")[1]
+url = "https://github.com/#{username}/#{repository}/pull/new/#{branch}"
+
+system("open-in-browser", url)
