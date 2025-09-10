@@ -26,7 +26,7 @@ fi
 cp ../laravel_starter/artisan .
 cp ../laravel_starter/bootstrap/*.php bootstrap/
 cp ../laravel_starter/config/*.php config/
-cp ../laravel_starter/docker-compose.yml.example .
+cp ../laravel_starter/docker-compose.yml .
 cp -r ../laravel_starter/docker/* docker/
 cp ../laravel_starter/lang/en/* lang/en/
 cp ../laravel_starter/phpstan.neon.dist .
