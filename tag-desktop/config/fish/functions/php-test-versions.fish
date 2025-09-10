@@ -4,13 +4,13 @@ function php-test-versions --description 'Run PHPUnit tests for multiple PHP ver
             set v (asdf latest php $v)
         end
         echo "*** $v ***"
-        asdf shell php $v
+        set -x ASDF_PHP_VERSION $v
         trash vendor composer.lock
         composer install --quiet
         phpunit
         echo
     end
     trash vendor composer.lock
-    asdf shell php --unset
+    set -e ASDF_PHP_VERSION
     composer install --quiet
 end
