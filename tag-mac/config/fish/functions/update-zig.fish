@@ -72,7 +72,6 @@ function update-zig --description 'Update Zig'
         command mkdir $install_directory
         tar -x -C $install_directory --strip-components 1 -f $download_file
         unquarantine $install_directory/zig
-        ln -f -s $install_directory/zig ~/bin/zig
 
         # Delete the download files.
         trash $download_file
