@@ -33,24 +33,21 @@ for path in $HOME/Developer/Projects $HOME/Developer/Excel/Projects
     end
 end
 
-for path in $HOME/bin $HOME/.cargo/bin $HOMEBREW_PREFIX/opt/python/libexec $HOME/.composer/vendor/bin
-    if test -d $path
-        fish_add_path -m $path
-    end
-end
+set paths \
+    $HOME/bin \
+    $HOME/.cargo/bin \
+    $HOMEBREW_PREFIX/opt/ruby/bin \
+    $HOMEBREW_PREFIX/lib/ruby/gems/3.4.0/bin \
+    $HOME/Developer/Zig
 
-# if test -d $HOMEBREW_PREFIX/opt/ruby/bin
-#     fish_add_path $HOMEBREW_PREFIX/opt/ruby/bin
-#     fish_add_path $HOMEBREW_PREFIX/lib/ruby/gems/3.4.0/bin
-#     set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/ruby/lib"
-#     set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/ruby/include"
-#     set -gx PKG_CONFIG_PATH "$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
-# end
+for path in $paths
+    fish_add_path $path
+end
 
 if test -d $HOMEBREW_PREFIX/opt/go/libexec; and test -d $HOME/Developer/Go
     set -x GOPATH $HOME/Developer/Go
     set -x GOROOT $HOMEBREW_PREFIX/opt/go/libexec
-    fish_add_path -m $HOME/Developer/Go/bin
+    fish_add_path $HOME/Developer/Go/bin
 end
 
 if type -q open
