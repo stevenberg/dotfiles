@@ -23,6 +23,8 @@
 .tool-versions
 .vagrant
 .vscode
+.zig-cache
 Icon
 Session.vim
 tags
+zig-out
